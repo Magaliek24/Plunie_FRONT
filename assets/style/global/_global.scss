@@ -1,0 +1,108 @@
+@font-face {
+    font-family: "Abril Fatface";
+    src: url("https://db.onlinewebfonts.com/t/4abc7b446177a4b533468cd3635fe0b6.eot");
+    src: url("https://db.onlinewebfonts.com/t/4abc7b446177a4b533468cd3635fe0b6.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/4abc7b446177a4b533468cd3635fe0b6.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/4abc7b446177a4b533468cd3635fe0b6.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/4abc7b446177a4b533468cd3635fe0b6.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/4abc7b446177a4b533468cd3635fe0b6.svg#Abril Fatface")format("svg");
+}
+
+@font-face {
+    font-family: "Caviar Dreams";
+    src: url("https://db.onlinewebfonts.com/t/b272450a19485b6e0cefb63200382c4a.eot");
+    src: url("https://db.onlinewebfonts.com/t/b272450a19485b6e0cefb63200382c4a.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/b272450a19485b6e0cefb63200382c4a.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/b272450a19485b6e0cefb63200382c4a.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/b272450a19485b6e0cefb63200382c4a.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/b272450a19485b6e0cefb63200382c4a.svg#Caviar Dreams")format("svg");
+}
+
+@font-face {
+    font-family: "Caviar Dreams Bold";
+    src: url("https://db.onlinewebfonts.com/t/0307c7a01678f977185f260b8e16dfbc.eot");
+    src: url("https://db.onlinewebfonts.com/t/0307c7a01678f977185f260b8e16dfbc.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/0307c7a01678f977185f260b8e16dfbc.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/0307c7a01678f977185f260b8e16dfbc.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/0307c7a01678f977185f260b8e16dfbc.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/0307c7a01678f977185f260b8e16dfbc.svg#Caviar Dreams Bold")format("svg");
+}
+
+@font-face {
+    font-family: "Caviar Dreams Italic";
+    src: url("https://db.onlinewebfonts.com/t/57a5c54404dbca01dcdda24dce621923.eot");
+    src: url("https://db.onlinewebfonts.com/t/57a5c54404dbca01dcdda24dce621923.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/57a5c54404dbca01dcdda24dce621923.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/57a5c54404dbca01dcdda24dce621923.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/57a5c54404dbca01dcdda24dce621923.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/57a5c54404dbca01dcdda24dce621923.svg#Caviar Dreams Italic")format("svg");
+}
+
+@font-face {
+    font-family: "Caviar Dreams Bold Italic";
+    src: url("https://db.onlinewebfonts.com/t/2eb2649df9665616da784c94ae4c2910.eot");
+    src: url("https://db.onlinewebfonts.com/t/2eb2649df9665616da784c94ae4c2910.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/2eb2649df9665616da784c94ae4c2910.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/2eb2649df9665616da784c94ae4c2910.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/2eb2649df9665616da784c94ae4c2910.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/2eb2649df9665616da784c94ae4c2910.svg#Caviar Dreams Bold Italic")format("svg");
+}
+
+@font-face {
+    font-family: "Oranienbaum";
+    src: url("https://db.onlinewebfonts.com/t/09850c3d018f2cb9cc4391a7e1e788bd.eot");
+    src: url("https://db.onlinewebfonts.com/t/09850c3d018f2cb9cc4391a7e1e788bd.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/09850c3d018f2cb9cc4391a7e1e788bd.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/09850c3d018f2cb9cc4391a7e1e788bd.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/09850c3d018f2cb9cc4391a7e1e788bd.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/09850c3d018f2cb9cc4391a7e1e788bd.svg#Oranienbaum")format("svg");
+}
+
+* {
+    scroll-behavior: smooth;
+    background-color: #EFE7DD;
+    color: #156064;
+}
+
+
+
+html,
+button {
+    font-family: "Caviar Dreams Bold";
+}
+
+
+h1,
+h2,
+h3 {
+    font-family: 'Oranienbaum';
+}
+
+
+img {
+    max-width: 100%;
+}
+
+
+ul {
+    & li {
+        list-style-type: none;
+
+        & a {
+            text-decoration: none;
+        }
+        
+    }
+}
+
+//   Empêche l'utilisateur de redimensionner les textarea :
+textarea {
+    resize: none;
+  }
+
+// laisse le trait sous le lien de la page active en lien avec la petite partie 
+a:not(#logo a):not(#reseaux-mobile a):not(#reseaux a):hover:after,
+a.active:not(#logo a):not(#reseaux-mobile a):not(#reseaux a):after {
+    transform: scaleX(1);
+    bottom: -2px;
+}
