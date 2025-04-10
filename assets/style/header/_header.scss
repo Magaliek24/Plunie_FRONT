@@ -4,12 +4,15 @@ header {
     z-index: 20;
     & nav {
         max-width: 1280px;
-        margin: 8px auto;
+        margin: 0px auto;
         display: flex;
         justify-content: space-between;
-        & #logo img{
-            width: 12vw;
-            min-width: 120px;
+        & #logo {
+            border-radius: 100px;
+            & img{
+                width: 12vw;
+                min-width: 120px;
+            }
         }
         & #nav {
             flex-grow: 1;
@@ -56,10 +59,49 @@ header {
         }
 }
 
+#homepage-header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;  /* Ajuste la hauteur du header */
+    z-index: 10;  /* Pour le mettre au-dessus du hero-header */
+    & nav {
+        & div {
+            & a {
+                color: #EFE7DD ;
+
+            }
+        }
+    }
+  }
+
+  #homepage-nav {
+    transition: background-color 0.3s ease;
+  }
+  
+  #homepage-nav.scrolled {
+    background-color: rgba(0, 0, 0, 0.42);
+    backdrop-filter: blur(5px);
+  }
+  
+  #homepage-nav.out-of-hero {
+    background-color: #EFE7DD;
+  
+    a {
+      color: #156064;
+    }
+  }
+
+// #homepage-nav.scrolled {
+//     background-color: rgba(0, 0, 0, 0.42); /* fond plus foncé et translucide */
+//     backdrop-filter: blur(5px); /* floute légèrement derrière pour un effet classe */
+//     transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+// }
+
+
 @media only screen and (max-width: 1280px) {
     header {
         & nav {
-            margin: 8px;
         }    
     }
 }
@@ -70,7 +112,7 @@ header {
         & nav {
             & #nav {
                 position: fixed;
-                right: 10px;
+                right: 0px;
                 top: 50%;
                 padding: 8px;
                 transform: translate(100vw,-50%);
@@ -85,18 +127,14 @@ header {
                 border-radius: 8px;
                 height: 70%;
                 & ul {
-                    // background: #7bc5b5;
                     flex-direction: column;
                     width:fit-content;
-                    background: transparent;
                     & li {
                         display: flex;
                         align-items: center;
-                        background: transparent;
                         & a {
                             display: flex;
                             width: fit-content;
-                            background: transparent;
                             padding: 8px 0;
                         }
                         & i {
@@ -104,28 +142,36 @@ header {
                             font-size: 16px;
                             margin-right: 0.5rem;
                             }
+            
                         
                     }
-                }
-                & i[data-theme-toggler] {
-                    position: absolute;
-                    top: 8px;
-                    right: 8px;
-                
                 }
             }
 
             & #nav.mobile {
                 transform: translate(0,-50%);
             }
-            & i#toggle-nav {
-                display: block;
-                font-size: 25px;
+
+            & #id-toggle-nav {
+                display: flex;
+                align-items: center;
+
+                & i#toggle-nav {
+                    display: block;
+                    font-size: 30px;
+                    padding-right: 1rem;
+                    color: #EFE7DD;
+                }
+
+                & i#toggle-nav.out-of-hero {
+                    color:#156064
+                }
+
+            
             }
-            
-            
         }
     }
+  
 }
 
 

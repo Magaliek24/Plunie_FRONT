@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -165,7 +166,6 @@ table {
 }
 * {
   scroll-behavior: smooth;
-  background-color: #EFE7DD;
   color: #156064;
 }
 
@@ -201,6 +201,42 @@ a.active:not(#logo a):not(#reseaux-mobile a):not(#reseaux a):after {
   bottom: -2px;
 }
 
+#scroll-to-top {
+  display: none;
+  position: fixed;
+  font-size: 2rem;
+  right: 1rem;
+  bottom: 1rem;
+  cursor: pointer;
+}
+
+#scroll-to-top.mobile {
+  position: relative;
+  right: inherit;
+  bottom: inherit;
+  width: 2rem;
+  -webkit-backdrop-filter: inherit;
+          backdrop-filter: inherit;
+  background-color: transparent;
+  border-radius: inherit;
+}
+
+main {
+  min-height: 120vh;
+  max-width: 1280px;
+  position: relative;
+  margin: auto;
+}
+main section {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+}
+
 header {
   position: fixed;
   width: 100%;
@@ -208,9 +244,12 @@ header {
 }
 header nav {
   max-width: 1280px;
-  margin: 8px auto;
+  margin: 0px auto;
   display: flex;
   justify-content: space-between;
+}
+header nav #logo {
+  border-radius: 100px;
 }
 header nav #logo img {
   width: 12vw;
@@ -252,15 +291,38 @@ header #toggle-nav {
   display: none;
 }
 
-@media only screen and (max-width: 1280px) {
-  header nav {
-    margin: 8px;
-  }
+#homepage-header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto; /* Ajuste la hauteur du header */
+  z-index: 10; /* Pour le mettre au-dessus du hero-header */
 }
+#homepage-header nav div a {
+  color: #EFE7DD;
+}
+
+#homepage-nav {
+  transition: background-color 0.3s ease;
+}
+
+#homepage-nav.scrolled {
+  background-color: rgba(0, 0, 0, 0.42);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+
+#homepage-nav.out-of-hero {
+  background-color: #EFE7DD;
+}
+#homepage-nav.out-of-hero a {
+  color: #156064;
+}
+
 @media only screen and (max-width: 768px) {
   header nav #nav {
     position: fixed;
-    right: 10px;
+    right: 0px;
     top: 50%;
     padding: 8px;
     transform: translate(100vw, -50%);
@@ -279,18 +341,15 @@ header #toggle-nav {
     flex-direction: column;
     width: -moz-fit-content;
     width: fit-content;
-    background: transparent;
   }
   header nav #nav ul li {
     display: flex;
     align-items: center;
-    background: transparent;
   }
   header nav #nav ul li a {
     display: flex;
     width: -moz-fit-content;
     width: fit-content;
-    background: transparent;
     padding: 8px 0;
   }
   header nav #nav ul li i {
@@ -298,16 +357,40 @@ header #toggle-nav {
     font-size: 16px;
     margin-right: 0.5rem;
   }
-  header nav #nav i[data-theme-toggler] {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-  }
   header nav #nav.mobile {
     transform: translate(0, -50%);
   }
-  header nav i#toggle-nav {
-    display: block;
-    font-size: 25px;
+  header nav #id-toggle-nav {
+    display: flex;
+    align-items: center;
   }
+  header nav #id-toggle-nav i#toggle-nav {
+    display: block;
+    font-size: 30px;
+    padding-right: 1rem;
+    color: #EFE7DD;
+  }
+  header nav #id-toggle-nav i#toggle-nav.out-of-hero {
+    color: #156064;
+  }
+}
+#hero-header {
+  background-image: url(/assets/photos/plunie_chaussures_barefoot.jpg);
+  background-size: cover; /* L'image couvre toute la largeur et la hauteur de l'élément */
+  background-position: top center; /* Positionne l'image au centre */
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  padding-top: 80px; /* Ajuste la hauteur si nécessaire pour ne pas chevaucher le header */
+  padding-bottom: 60px; /* Ajuste la partie inférieure du hero-header */
+}
+#hero-header #H1-home {
+  font-family: "Abril Fatface";
+  font-size: 26px;
+  letter-spacing: 2px;
+  line-height: 3rem;
+  color: #EFE7DD;
+  text-align: center;
+  margin: 0 12vw;
 }/*# sourceMappingURL=style.css.map */

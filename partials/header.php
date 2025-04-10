@@ -11,9 +11,6 @@
     <meta property="og:title" content="Plunie">
     <meta property="og:image" content="./assets/photos/plunie_chaussures_barefoot.jpg">
     <meta property="og:description" content="Vente en ligne de chaussures barefoot pour enfants">
-    <script type="module" src="/assets/js/main.js"></script>
-    <link rel="stylesheet" href="/assets/style/style.css">
-
     <link
         rel="icon"
         type="image/png"
@@ -48,13 +45,13 @@
 </head>
 
 <body>
-    <header id="homepage-header">
-        <nav id="homepage-nav">
+    <header>
+        <nav>
             <div id="logo">
                 <a href="/index.php">
                     <img
                         src="/assets/photos/Logo.png"
-                        alt="logo de Plunie composé d_une lune et
+                        alt="image logo de Plunie composé d_une lune et
             d_une plume" />
                 </a>
             </div>
@@ -71,43 +68,3 @@
             </div>
         </nav>
     </header>
-    <main id="accueil">
-        <section id="hero-header">
-            <h1 id="H1-home">Des chaussures souples pour favoriser le bon développement des tout-petits et des plus grands</h1>
-            <div id="container">
-                <div class="image"></div>
-                <div class="content">
-                    <button>Découvrez notre collection</button>
-                </div>
-            </div>
-        </section>
-        <section id="boutique">
-            <h2>Laissez les pieds de vos enfants grandir sans entrave</h2>
-        </section>
-        <section id="pictogrammes">Pictogrammes</section>
-
-    </main>
-    <footer>
-        <i id="scroll-to-top" class="fas fa-arrow-up"></i>
-        <div id="grid">
-            <nav id="nav">
-                <ul>
-                    <li><a href="#">Mentions légales</a></li>
-                    <li><a href="#">Politique de confidentialité</a></li>
-                    <li><a href="#">A propos</a></li>
-                </ul>
-            </nav>
-            <div id="reseaux_sociaux">
-                <a href="#"><img src="./Reseaux-sociaux/facebook.png" /></a>
-                <a href="#"><img src="./Reseaux-sociaux/twitter.png" /></a>
-                <a href="#"><img src="./Reseaux-sociaux/instagram.png" /></a>
-            </div>
-            <div id="banniere_footer">
-                <span>&copy; 2025 - tous droits réservés</span>
-            </div>
-        </div>
-
-    </footer>
-</body>
-
-</html>
