@@ -7,9 +7,9 @@ header {
         margin: 0px auto;
         display: flex;
         justify-content: space-between;
+        
         & #logo {
-            border-radius: 100px;
-            & img{
+             & img{
                 width: 12vw;
                 min-width: 120px;
             }
@@ -24,7 +24,7 @@ header {
                 flex-grow: 1;
                 justify-content: space-around;
                 & li {
-                    
+                        
                     & i {
                         display: none;
                     }
@@ -37,23 +37,24 @@ header {
             
                     & a:after {
                         content: '';
-                        position: absolute;
-                        transform: scaleX(0);
-                        width: 100%;
-                        height: 2px;
-                        background-color: #f58078;
-                        transition: transform 0.25s ease-out;
-                        bottom: -2px;
-                        left: 0;
-                    }
-            
-                    & a:hover:after {
-                        transform: scaleX(1);
-                    }
+                            position: absolute;
+                            transform: scaleX(0);
+                            width: 100%;
+                            height: 2px;
+                            background-color: #f58078;
+                            transition: transform 0.25s ease-out;
+                            bottom: -2px;
+                            left: 0;
+                        }
+                
+                        & a:hover:after {
+                            transform: scaleX(1);
+                        }
+                     }
                 }
-            }
-        }
+            
     }
+}
         & #toggle-nav {
             display: none;
         }
@@ -92,11 +93,6 @@ header {
     }
   }
 
-// #homepage-nav.scrolled {
-//     background-color: rgba(0, 0, 0, 0.42); /* fond plus foncé et translucide */
-//     backdrop-filter: blur(5px); /* floute légèrement derrière pour un effet classe */
-//     transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
-// }
 
 
 @media only screen and (max-width: 1280px) {
@@ -113,19 +109,18 @@ header {
             & #nav {
                 position: fixed;
                 right: 0px;
-                top: 50%;
+                top: calc(60px + 1rem); 
                 padding: 8px;
-                transform: translate(100vw,-50%);
+                transform: translateX(100vw);
                 transition: transform 0.7s;
                 background-color: #7bc5b5;
                 display: flex;
                 flex-direction: column;
                 width: 50vw;
                 max-width: 200px;
-                min-height: 50vh;
-                min-height: calc(var(--vh, 1vh) * 50);
-                border-radius: 8px;
-                height: 70%;
+                min-height: 300px;
+                height: 70vh;
+                border-radius: 8px 0 0 8px;
                 & ul {
                     flex-direction: column;
                     width:fit-content;
@@ -136,6 +131,7 @@ header {
                             display: flex;
                             width: fit-content;
                             padding: 8px 0;
+                            color: #EFE7DD !important;
                         }
                         & i {
                             display: block;
@@ -149,9 +145,9 @@ header {
             }
 
             & #nav.mobile {
-                transform: translate(0,-50%);
+                transform: translateX(0);
             }
-
+        
             & #id-toggle-nav {
                 display: flex;
                 align-items: center;
@@ -163,16 +159,17 @@ header {
                     color: #EFE7DD;
                 }
 
-                & i#toggle-nav.out-of-hero {
-                    color:#156064
-                }
-
-            
             }
+            
         }
     }
+
+    #homepage-nav.out-of-hero #toggle-nav {
+        color: #156064;
+      }
+ }
   
-}
+
 
 
 // mobile

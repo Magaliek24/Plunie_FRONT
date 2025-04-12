@@ -49,7 +49,9 @@
 
 <body>
     <header id="homepage-header">
+
         <nav id="homepage-nav">
+
             <div id="logo">
                 <a href="/index.php">
                     <img
@@ -75,39 +77,39 @@
         <section id="hero-header">
             <h1 id="H1-home">Des chaussures souples pour favoriser le bon développement des tout-petits et des plus grands</h1>
             <div id="container">
-                <div class="image"></div>
-                <div class="content">
-                    <button>Découvrez notre collection</button>
-                </div>
+                <button id="button-hero-header">Découvrez notre collection</button>
             </div>
         </section>
-        <section id="boutique">
-            <h2>Laissez les pieds de vos enfants grandir sans entrave</h2>
+        <section id="boutique-section">
+            <h2>Nos Essentiels</h2>
+            <div id="products-grid">
+
+                <div class="product-card">
+                    <img src="./assets/photos/boots_corail/Boots_plunie_corail.jpg" alt="Boots Sirius">
+                    <h3>Boots Sirius</h3>
+                    <p class="color">Corail</p>
+                    <p class="price">69.00 €</p>
+                </div>
+
+                <div class="product-card">
+                    <img src="./assets/photos/chelsea_cognac/Chelsea_cognac_plunie.jpg" alt="Chelsea Arae">
+                    <h3>Chelsea Arae</h3>
+                    <p class="color">Cognac</p>
+                    <p class="price">69.00 €</p>
+                </div>
+
+                <div class="product-card">
+                    <img src="./assets/photos/plunie_semelles_reversibles.jpeg" alt="Semelles cuir/feutre">
+                    <h3>Semelles réversibles cuir/feutre</h3>
+                    <p class="color invisible">-</p>
+                    <p class="price">5.00 €</p>
+                </div>
+
+            </div>
+
         </section>
         <section id="pictogrammes">Pictogrammes</section>
 
     </main>
-    <footer>
-        <i id="scroll-to-top" class="fas fa-arrow-up"></i>
-        <div id="grid">
-            <nav id="nav">
-                <ul>
-                    <li><a href="#">Mentions légales</a></li>
-                    <li><a href="#">Politique de confidentialité</a></li>
-                    <li><a href="#">A propos</a></li>
-                </ul>
-            </nav>
-            <div id="reseaux_sociaux">
-                <a href="#"><img src="./Reseaux-sociaux/facebook.png" /></a>
-                <a href="#"><img src="./Reseaux-sociaux/twitter.png" /></a>
-                <a href="#"><img src="./Reseaux-sociaux/instagram.png" /></a>
-            </div>
-            <div id="banniere_footer">
-                <span>&copy; 2025 - tous droits réservés</span>
-            </div>
-        </div>
 
-    </footer>
-</body>
-
-</html>
+    <?php include("./partials/footer.php"); ?>

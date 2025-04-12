@@ -8,6 +8,12 @@
     position: relative;
     padding-top: 80px; /* Ajuste la hauteur si nécessaire pour ne pas chevaucher le header */
     padding-bottom: 60px; /* Ajuste la partie inférieure du hero-header */
+    display: flex;
+    flex-direction: column;      /* empile les enfants en colonne */
+    // justify-content: space-between;
+    justify-content: space-between; /* espace entre le h1 (en haut) et le bouton (en bas) */
+    align-items: flex-start; /* aligne le contenu à gauche */
+    
     
     & #H1-home {
         font-family: "Abril Fatface";
@@ -16,9 +22,55 @@
         line-height: 3rem;
         color: #EFE7DD ;
         text-align: center;
-        margin: 0 12vw;
-    
+        margin: 18vh 12vw;
     }
   }
-  
-  
+
+#container {
+    // position: absolute;
+    // bottom: 40px; /* espace depuis le bas */
+    // left: 40px;   /* espace depuis la gauche */
+}
+
+#button-hero-header {
+    color: #efe7dd;
+    border-style: solid;
+    border-color: #efe7dd;
+    backdrop-filter: blur(5px);
+    width: fit-content;
+    margin-left: 40px;
+}
+#button-hero-header:hover {
+  }
+
+
+@media only screen and (max-width: 768px) {
+#hero-header {
+    & #H1-home {
+            font-size: 20px;
+            line-height: 2rem;
+    }
+    & div {
+        & button {
+            font-size: 16px;
+
+        }
+    }
+}
+}
+
+
+@media only screen and (max-width: 576px) {
+    #hero-header {
+        & #H1-home {
+            margin: 10vh 12vw;
+        }
+        & div {
+            & button {
+            }
+        }
+    }
+    }
+    
+
+

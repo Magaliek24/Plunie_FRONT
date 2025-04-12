@@ -169,8 +169,33 @@ table {
   color: #156064;
 }
 
-html,
+body {
+  background-color: #EFE7DD;
+}
+
+html {
+  font-family: "Caviar Dreams Bold";
+  height: 100vh; /* Fallback for browsers that do not support Custom properties*/
+  height: calc(var(--vh, 1vh) * 100);
+}
+
 button {
+  font-family: "Caviar Dreams";
+  font-size: 20px;
+  background: transparent;
+  color: #156064;
+  padding: 12px 30px;
+  border-radius: 6px;
+  border-style: solid;
+  border-color: #156064;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+}
+
+button:hover {
   font-family: "Caviar Dreams Bold";
 }
 
@@ -188,6 +213,7 @@ ul li {
   list-style-type: none;
 }
 ul li a {
+  position: relative;
   text-decoration: none;
 }
 
@@ -222,7 +248,6 @@ a.active:not(#logo a):not(#reseaux-mobile a):not(#reseaux a):after {
 }
 
 main {
-  min-height: 120vh;
   max-width: 1280px;
   position: relative;
   margin: auto;
@@ -233,8 +258,6 @@ main section {
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
-  min-height: calc(var(--vh, 1vh) * 100);
 }
 
 header {
@@ -247,9 +270,6 @@ header nav {
   margin: 0px auto;
   display: flex;
   justify-content: space-between;
-}
-header nav #logo {
-  border-radius: 100px;
 }
 header nav #logo img {
   width: 12vw;
@@ -323,19 +343,18 @@ header #toggle-nav {
   header nav #nav {
     position: fixed;
     right: 0px;
-    top: 50%;
+    top: calc(60px + 1rem);
     padding: 8px;
-    transform: translate(100vw, -50%);
+    transform: translateX(100vw);
     transition: transform 0.7s;
     background-color: #7bc5b5;
     display: flex;
     flex-direction: column;
     width: 50vw;
     max-width: 200px;
-    min-height: 50vh;
-    min-height: calc(var(--vh, 1vh) * 50);
-    border-radius: 8px;
-    height: 70%;
+    min-height: 300px;
+    height: 70vh;
+    border-radius: 8px 0 0 8px;
   }
   header nav #nav ul {
     flex-direction: column;
@@ -351,6 +370,7 @@ header #toggle-nav {
     width: -moz-fit-content;
     width: fit-content;
     padding: 8px 0;
+    color: #EFE7DD !important;
   }
   header nav #nav ul li i {
     display: block;
@@ -358,7 +378,7 @@ header #toggle-nav {
     margin-right: 0.5rem;
   }
   header nav #nav.mobile {
-    transform: translate(0, -50%);
+    transform: translateX(0);
   }
   header nav #id-toggle-nav {
     display: flex;
@@ -370,7 +390,7 @@ header #toggle-nav {
     padding-right: 1rem;
     color: #EFE7DD;
   }
-  header nav #id-toggle-nav i#toggle-nav.out-of-hero {
+  #homepage-nav.out-of-hero #toggle-nav {
     color: #156064;
   }
 }
@@ -384,6 +404,10 @@ header #toggle-nav {
   position: relative;
   padding-top: 80px; /* Ajuste la hauteur si nécessaire pour ne pas chevaucher le header */
   padding-bottom: 60px; /* Ajuste la partie inférieure du hero-header */
+  display: flex;
+  flex-direction: column; /* empile les enfants en colonne */
+  justify-content: space-between; /* espace entre le h1 (en haut) et le bouton (en bas) */
+  align-items: flex-start; /* aligne le contenu à gauche */
 }
 #hero-header #H1-home {
   font-family: "Abril Fatface";
@@ -392,5 +416,125 @@ header #toggle-nav {
   line-height: 3rem;
   color: #EFE7DD;
   text-align: center;
-  margin: 0 12vw;
+  margin: 18vh 12vw;
+}
+
+#button-hero-header {
+  color: #efe7dd;
+  border-style: solid;
+  border-color: #efe7dd;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: 40px;
+}
+
+@media only screen and (max-width: 768px) {
+  #hero-header #H1-home {
+    font-size: 20px;
+    line-height: 2rem;
+  }
+  #hero-header div button {
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 576px) {
+  #hero-header #H1-home {
+    margin: 10vh 12vw;
+  }
+}
+footer {
+  max-width: 1280px;
+  margin: auto;
+  border-top: 1px solid rgba(21, 96, 100, 0.3);
+  padding: 2rem 1rem;
+  position: relative;
+  text-align: center;
+  font-size: 0.9rem;
+}
+footer #grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+footer #grid #nav-footer ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
+footer #grid #nav-footer ul li a {
+  text-decoration: none;
+  color: #156064;
+  transition: color 0.3s;
+}
+footer #grid #nav-footer ul li a:hover {
+  color: #f58078;
+}
+footer #grid #reseaux_sociaux {
+  display: flex;
+  gap: 1rem;
+}
+footer #grid #reseaux_sociaux a {
+  font-size: 1.2rem;
+}
+footer #grid #reseaux_sociaux a i:hover {
+  color: #f58078;
+}
+footer #grid #banniere_footer {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+
+@media only screen and (max-width: 576px) {
+  footer #grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  footer #grid #nav-footer ul {
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+main#accueil section#boutique-section {
+  padding: 0 2rem;
+}
+main#accueil section#boutique-section h2 {
+  font-size: 3rem;
+  letter-spacing: 1.5px;
+  margin: 3rem;
+}
+main#accueil section#boutique-section #products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+main#accueil section#boutique-section #products-grid .product-card {
+  text-align: left;
+}
+main#accueil section#boutique-section #products-grid .product-card img {
+  width: 100%;
+  display: block;
+  border-radius: 5px;
+}
+main#accueil section#boutique-section #products-grid .product-card h3 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0.3rem;
+  font-weight: 600;
+}
+main#accueil section#boutique-section #products-grid .product-card .color {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+main#accueil section#boutique-section #products-grid .product-card .price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #595959;
+}
+main#accueil section#boutique-section #products-grid .product-card .invisible {
+  visibility: hidden;
 }/*# sourceMappingURL=style.css.map */

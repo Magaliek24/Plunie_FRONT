@@ -3,7 +3,7 @@ const scrollToTopButton = document.querySelector("#scroll-to-top");
 const root = document.documentElement;
 
 function posX() {
-  if (window.matchMedia("(max-width: 576px").matches) {
+  if (window.matchMedia("max-width: 576px").matches) {
     const reseau_mobile = document.querySelector("#reseaux-mobile");
     scrollToTopButton.classList.add("mobile");
     reseau_mobile.appendChild(scrollToTopButton);
