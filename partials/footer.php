@@ -1,5 +1,5 @@
 <footer>
-    <i id="scroll-to-top" class="fas fa-arrow-up"></i>
+    <i id="scroll-to-top" class="fas fa-angle-up"></i>
     <div id="grid">
         <nav id="nav-footer">
             <ul>
@@ -9,8 +9,8 @@
             </ul>
         </nav>
         <div id="reseaux_sociaux">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/people/Plunie/100092193140801/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/plunie_chaussures/?hl=fr" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
         <div id="banniere_footer">
             <span>&copy; 2025 - tous droits réservés</span>

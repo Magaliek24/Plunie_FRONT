@@ -17,9 +17,9 @@ function calc_viewport_height() {
 
 window.addEventListener("DOMContentLoaded", () => {
   calc_viewport_height();
-  calc_body_padding();
+  // calc_body_padding();
 });
 window.addEventListener("resize", () => {
   calc_viewport_height();
-  calc_body_padding();
+  // calc_body_padding();
 });

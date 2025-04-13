@@ -108,7 +108,27 @@
             </div>
 
         </section>
-        <section id="pictogrammes">Pictogrammes</section>
+        <section id="pourquoi-choisir-plunie">
+            <div id="texte-pourquoi">
+                <h2>Pourquoi choisir Plunie ?</h2>
+                <ul>
+                    <li><strong>Souplesse et liberté de mouvement : </strong>chaussures souples pour permettre une bonne liberté de mouvement et laisser le pied se développer le plus naturellement possible</li>
+                    <li><strong>Semelle flexible : </strong>en longueur et en largeur pour un mouvement fluide et naturel du pied</li>
+                    <li><strong>Forme anatomique : </strong>large boîte à orteils (« toe box ») respectant la forme naturelle du pied pour un ajustement sans entrave</li>
+                    <li><strong>Semelle intérieure amovible et réversible : </strong>avec un côté en cuir et un côté en feutre, pour les journées plus fraîches</li>
+                    <li><strong>Sans support de voûte plantaire : </strong>pour permettre au pied de se muscler librement</li>
+                    <li><strong>Semelle plate : </strong>sans dénivelé pour une posture physiologique, la plus naturelle possible</li>
+                    <li><strong>Pour marcheurs débutants et confirmés</strong></li>
+                    <li><strong>Cuir de vache italien tanné végétalement : </strong>respectueux de l’environnement et doux pour la peau</li>
+                    <li><strong>Adaptées aux pieds moyens et fins</strong></li>
+                </ul>
+            </div>
+            <div id="image-pourquoi">
+                <img src="./assets/photos/pourquoi_choisir_plunie.jpg" alt="Chelsea cognac et boots marine">
+            </div>
+
+        </section>
+        <!-- <section id="pictogrammes">Pictogrammes</section> -->
 
     </main>
 

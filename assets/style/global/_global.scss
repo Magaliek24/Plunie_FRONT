@@ -142,6 +142,10 @@ a.active:not(#logo a):not(#reseaux-mobile a):not(#reseaux a):after {
     right: 1rem;
     bottom: 1rem;
     cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.112);
+    border-radius: 4px;
+    padding: 2px;
+
 }
 
 #scroll-to-top.mobile {

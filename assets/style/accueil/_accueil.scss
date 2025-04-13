@@ -45,5 +45,89 @@ main#accueil {
         }
       }
     }
-  }
+    section#pourquoi-choisir-plunie {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        padding: 3rem 2rem;
+        min-height: 280px;
+        
+        & #texte-pourquoi {
+            min-width: 280px;
+            & h2 {
+                line-height: 2.5;
+                font-size: 2rem;
+            }
+            &  ul {
+                line-height: 1.4;
+              
+              & li {
+                font-family: "Caviar Dreams";
+                color: #0f4e51;
+                margin-bottom: 1rem;
+              }
+              
+              & li strong {
+                font-weight: 800;
+                color: #156064; 
+              }
+            }
+        }
+        
+        & #image-pourquoi {
+            max-width: 300px;
+            height: 100%;
+            & img {
+                width: 100%;
+                object-fit: cover;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+        }
+    }
+
+
+@media screen and (max-width: 768px) {
+    section#pourquoi-choisir-plunie {
+        flex-direction: column;
+        align-items: center;
+        min-height: auto;
+
+        & #texte-pourquoi {
+            width: 100%;
+            & h2 {
+                font-size: 1.7rem;
+            }
+            &  ul {
+                  
+                & li {
+                    font-size: 1rem;
+                
+                }
+                  
+                & li strong {
+                }
+            }
+        }
+            
+        & #image-pourquoi {
+            width: 100%;
+            max-width: none;
+            height: auto;
+            display: flex;
+            justify-content: center;
+
+            & img {
+                width: 60vw;
+                    // height: auto;
+                    // max-height: 400px;
+            }
+        }
+    }
+    
+
+}
+}
+
+
   

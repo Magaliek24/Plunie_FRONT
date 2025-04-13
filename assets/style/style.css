@@ -234,6 +234,9 @@ a.active:not(#logo a):not(#reseaux-mobile a):not(#reseaux a):after {
   right: 1rem;
   bottom: 1rem;
   cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.112);
+  border-radius: 4px;
+  padding: 2px;
 }
 
 #scroll-to-top.mobile {
@@ -537,4 +540,67 @@ main#accueil section#boutique-section #products-grid .product-card .price {
 }
 main#accueil section#boutique-section #products-grid .product-card .invisible {
   visibility: hidden;
+}
+main#accueil section#pourquoi-choisir-plunie {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  padding: 3rem 2rem;
+  min-height: 280px;
+}
+main#accueil section#pourquoi-choisir-plunie #texte-pourquoi {
+  min-width: 280px;
+}
+main#accueil section#pourquoi-choisir-plunie #texte-pourquoi h2 {
+  line-height: 2.5;
+  font-size: 2rem;
+}
+main#accueil section#pourquoi-choisir-plunie #texte-pourquoi ul {
+  line-height: 1.4;
+}
+main#accueil section#pourquoi-choisir-plunie #texte-pourquoi ul li {
+  font-family: "Caviar Dreams";
+  color: #0f4e51;
+  margin-bottom: 1rem;
+}
+main#accueil section#pourquoi-choisir-plunie #texte-pourquoi ul li strong {
+  font-weight: 800;
+  color: #156064;
+}
+main#accueil section#pourquoi-choisir-plunie #image-pourquoi {
+  max-width: 300px;
+  height: 100%;
+}
+main#accueil section#pourquoi-choisir-plunie #image-pourquoi img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+@media screen and (max-width: 768px) {
+  main#accueil section#pourquoi-choisir-plunie {
+    flex-direction: column;
+    align-items: center;
+    min-height: auto;
+  }
+  main#accueil section#pourquoi-choisir-plunie #texte-pourquoi {
+    width: 100%;
+  }
+  main#accueil section#pourquoi-choisir-plunie #texte-pourquoi h2 {
+    font-size: 1.7rem;
+  }
+  main#accueil section#pourquoi-choisir-plunie #texte-pourquoi ul li {
+    font-size: 1rem;
+  }
+  main#accueil section#pourquoi-choisir-plunie #image-pourquoi {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    display: flex;
+    justify-content: center;
+  }
+  main#accueil section#pourquoi-choisir-plunie #image-pourquoi img {
+    width: 60vw;
+  }
 }/*# sourceMappingURL=style.css.map */
