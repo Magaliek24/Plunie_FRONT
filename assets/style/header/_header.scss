@@ -156,13 +156,23 @@ header {
                     display: block;
                     font-size: 30px;
                     padding-right: 1rem;
-                    color: #EFE7DD;
+                    color: #156064;
+                    cursor: url('/assets/cursor/icone_pied_coeur25px.cur'), pointer;
                 }
 
             }
             
         }
     }
+
+    #homepage-nav {
+        & #id-toggle-nav {
+            & #toggle-nav {
+        color: #EFE7DD;
+            }
+      }
+    }
+
 
     #homepage-nav.out-of-hero #toggle-nav {
         color: #156064;

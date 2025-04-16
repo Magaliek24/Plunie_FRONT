@@ -1,14 +1,3 @@
-// window.addEventListener("scroll", () => {
-//   const elements = document.querySelectorAll("#homepage-nav, #logo");
-//   elements.forEach((element) => {
-//     if (window.scrollY > 50) {
-//       element.classList.add("scrolled");
-//     } else {
-//       element.classList.remove("scrolled");
-//     }
-//   });
-// });
-
 window.addEventListener("scroll", () => {
   const header = document.getElementById("homepage-nav");
   const toggle_nav = document.getElementById("toggle-nav");

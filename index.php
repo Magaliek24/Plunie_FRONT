@@ -14,26 +14,12 @@
     <script type="module" src="/assets/js/main.js"></script>
     <link rel="stylesheet" href="/assets/style/style.css">
 
-    <link
-        rel="icon"
-        type="image/png"
-        href="./assets/favicons/favicon-96x96.png"
-        sizes="96x96">
-    <link
-        rel="icon"
-        type="image/svg+xml"
-        href="./assets/favicons/favicon.svg">
-    <link
-        rel="shortcut icon"
-        href="./assets/favicons/favicon.ico">
-    <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="./assets/favicons/apple-touch-icon.png">
-    <link
-        rel="manifest"
-        href="./assets/favicons/site.webmanifest">
-
+    <link rel="icon" type="image/png" href="./assets/favicons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicons/favicon.svg" />
+    <link rel="shortcut icon" href="./assets/favicons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Plunie" />
+    <link rel="manifest" href="./assets/favicons/site.webmanifest" />
 
     <link
         rel="stylesheet"
@@ -128,7 +114,39 @@
             </div>
 
         </section>
-        <!-- <section id="pictogrammes">Pictogrammes</section> -->
+        <section id="pictogrammes">
+            <div id="pictos-div">
+
+                <div class="pictos">
+                    <img src="./assets/photos/pictos/toe_box_anatomique.png" alt="Forme anatomique">
+                    <h4>Forme anatomique</h4>
+                    <p class="picto-description">respectueuse de la forme naturelle
+                        du pied</p>
+                </div>
+
+                <div class="pictos">
+                    <img src="./assets/photos/pictos/souplesse.png" alt="Semelle flexible">
+                    <h4>Semelle flexible</h4>
+                    <p class="picto-description">en longueur et en largeur</p>
+                </div>
+
+                <div class="pictos">
+                    <img src="./assets/photos/pictos/sensation_pieds_nus.png" alt="Sensation pieds nus">
+                    <h4>Forme anatomique</h4>
+                    <p class="picto-description">respectueuse de la forme naturelle
+                        du pied</p>
+                </div>
+
+                <div class="pictos">
+                    <img src="./assets/photos/pictos/conception_europeenne.png" alt="Fabrication artisanale">
+                    <h4>Fabriquées artisanalement</h4>
+                    <p class="picto-description">au Portugal, avec des matériaux européens de qualité</p>
+                </div>
+
+
+            </div>
+
+        </section>
 
     </main>
 

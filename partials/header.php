@@ -11,25 +11,12 @@
     <meta property="og:title" content="Plunie">
     <meta property="og:image" content="./assets/photos/plunie_chaussures_barefoot.jpg">
     <meta property="og:description" content="Vente en ligne de chaussures barefoot pour enfants">
-    <link
-        rel="icon"
-        type="image/png"
-        href="./assets/favicons/favicon-96x96.png"
-        sizes="96x96">
-    <link
-        rel="icon"
-        type="image/svg+xml"
-        href="./assets/favicons/favicon.svg">
-    <link
-        rel="shortcut icon"
-        href="./assets/favicons/favicon.ico">
-    <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="./assets/favicons/apple-touch-icon.png">
-    <link
-        rel="manifest"
-        href="./assets/favicons/site.webmanifest">
+    <link rel="icon" type="image/png" href="./assets/favicons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicons/favicon.svg" />
+    <link rel="shortcut icon" href="./assets/favicons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Plunie" />
+    <link rel="manifest" href="./assets/favicons/site.webmanifest" />
 
 
     <link

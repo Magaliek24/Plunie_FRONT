@@ -75,6 +75,11 @@ html {
 
 }
 
+header {
+    & a {
+        cursor: url('/assets/cursor/icone_pied_coeur25px.cur'), pointer;
+    }
+}
 
 button {
     font-family: 'Caviar Dreams';
@@ -87,7 +92,7 @@ button {
     border-color: #156064;
     backdrop-filter: blur(5px);
     width: fit-content;
-    cursor: pointer;
+    cursor: url('/assets/cursor/icone_pied_coeur25px.cur'), pointer;
 }
 button:hover {
     font-family: "Caviar Dreams Bold";
@@ -117,6 +122,8 @@ ul {
         
     }
 }
+
+
 
 
 //   Empêche l'utilisateur de redimensionner les textarea :

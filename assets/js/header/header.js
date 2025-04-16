@@ -22,7 +22,6 @@ const close_menu = () => {
 function init_mobile_menu() {
   if (window.matchMedia("(max-width: 768px)").matches) {
     let toggle_nav = document.querySelector("#toggle-nav");
-    toggle_nav.style.cursor = "pointer";
     toggle_nav.addEventListener("click", toggle_nav_mobile);
     // Pour fermer la nav mobile en incluant le listener clic partout et pas uniquement sur le main :
     document.body.addEventListener("click", (e) => {
@@ -49,6 +48,7 @@ window.addEventListener("DOMContentLoaded", () => {
       link.classList.add("active"); // Ajouter la classe active
     }
   });
+
   init_mobile_menu();
   window.addEventListener("resize", init_mobile_menu);
   // fermer le menu quand on scrolle
