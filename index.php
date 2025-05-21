@@ -37,7 +37,6 @@
     <header id="homepage-header">
 
         <nav id="homepage-nav">
-
             <div id="logo">
                 <a href="/index.php">
                     <img
@@ -46,6 +45,7 @@
             d_une plume" />
                 </a>
             </div>
+            <input type="checkbox" id="toggle-hamburger" />
             <div id="nav">
                 <ul id="nav-links">
                     <li><a href="/pages/boutique.php">Nos modèles</a></li>
@@ -54,8 +54,15 @@
                     <li><a href="#">Blog</a></li>
                 </ul>
             </div>
-            <div id="id-toggle-nav">
+            <!-- <div id="id-toggle-nav">
                 <i id="toggle-nav" class="fas fa-bars"></i>
+            </div> -->
+            <div id="menu-hamburger">
+                <label for="toggle-hamburger">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </label>
             </div>
         </nav>
     </header>
@@ -115,34 +122,40 @@
 
         </section>
         <section id="pictogrammes">
-            <div id="pictos-div">
+            <div id="pictos-container">
+                <div id="pictos-div">
 
-                <div class="pictos">
-                    <img src="./assets/photos/pictos/toe_box_anatomique.png" alt="Forme anatomique">
-                    <h4>Forme anatomique</h4>
-                    <p class="picto-description">respectueuse de la forme naturelle
-                        du pied</p>
+                    <div class="pictos">
+                        <div class="image-picto"><img src="./assets/photos/pictos/toe_box_anatomique.png" alt="Forme anatomique"></div>
+                        <h4>Forme anatomique</h4>
+                        <p class="picto-description">respectueuse de la forme naturelle
+                            du pied</p>
+                    </div>
+
+                    <div class="pictos">
+                        <div class="image-picto"><img src="./assets/photos/pictos/souplesse.png" alt="Semelle flexible"></div>
+                        <h4>Semelle flexible</h4>
+                        <p class="picto-description">en longueur et en largeur</p>
+                    </div>
+
+                    <div class="pictos">
+                        <div class="image-picto"><img src="./assets/photos/pictos/sensation_pieds_nus.png" alt="Sensation pieds nus"></div>
+                        <h4>Forme anatomique</h4>
+                        <p class="picto-description">respectueuse de la forme naturelle
+                            du pied</p>
+                    </div>
+
+                    <div class="pictos">
+                        <div class="image-picto"><img src="./assets/photos/pictos/conception_europeenne.png" alt="Fabrication artisanale"></div>
+                        <h4>Fabriquées artisanalement</h4>
+                        <p class="picto-description">au Portugal, avec des matériaux européens de qualité</p>
+                    </div>
+
                 </div>
-
-                <div class="pictos">
-                    <img src="./assets/photos/pictos/souplesse.png" alt="Semelle flexible">
-                    <h4>Semelle flexible</h4>
-                    <p class="picto-description">en longueur et en largeur</p>
+                <div id="carrousel-controls">
+                    <button id="prev"><i class="fas fa-angle-left"></i></button>
+                    <button id="next"><i class="fas fa-angle-right"></i></button>
                 </div>
-
-                <div class="pictos">
-                    <img src="./assets/photos/pictos/sensation_pieds_nus.png" alt="Sensation pieds nus">
-                    <h4>Forme anatomique</h4>
-                    <p class="picto-description">respectueuse de la forme naturelle
-                        du pied</p>
-                </div>
-
-                <div class="pictos">
-                    <img src="./assets/photos/pictos/conception_europeenne.png" alt="Fabrication artisanale">
-                    <h4>Fabriquées artisanalement</h4>
-                    <p class="picto-description">au Portugal, avec des matériaux européens de qualité</p>
-                </div>
-
 
             </div>
 

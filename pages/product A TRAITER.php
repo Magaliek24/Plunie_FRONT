@@ -1,0 +1,3 @@
+<?php
+
+// page produit détaillée

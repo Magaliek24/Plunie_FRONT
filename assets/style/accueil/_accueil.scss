@@ -1,147 +1,267 @@
+//avec Claude
+
 main#accueil {
-    section#boutique-section {
-      padding: 0 2rem; 
-  
-      & h2 {
-        font-size: 3rem;
-        letter-spacing: 1.5px;
-        margin: 3rem;
-      }
-  
-      & #products-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-  
-        .product-card {
-          text-align: left;
-  
-          & img {
-            width: 100%;
-            display: block;
-            border-radius: 5px;
-          }
-  
-          & h3 {
-            font-size: 1.2rem;
-            margin: 0.5rem 0 0.3rem;
-            font-weight: 600;
-          }
-  
-          & .color {
-            font-size: 0.9rem;
-            margin-bottom: 0.3rem;
-          }
-  
-          & .price {
-            font-size: 1rem;
-            font-weight: bold;
-            color: #595959;
-          }
-  
-          & .invisible {
-            visibility: hidden;
-          }
-        }
-      }
-    }
-    section#pourquoi-choisir-plunie {
-        display: flex;
-        flex-direction: row;
-        gap: 2rem;
-        padding: 3rem 2rem;
-        min-height: 280px;
-        
-        & #texte-pourquoi {
-            min-width: 280px;
-            & h2 {
-                line-height: 2.5;
-                font-size: 2rem;
-            }
-            &  ul {
-                line-height: 1.4;
-              
-              & li {
-                font-family: "Caviar Dreams";
-                color: #0f4e51;
-                margin-bottom: 1rem;
-              }
-              
-              & li strong {
-                font-weight: 800;
-                color: #156064; 
-              }
-            }
-        }
-        
-        & #image-pourquoi {
-            max-width: 300px;
-            height: 100%;
-            & img {
-                width: 100%;
-                object-fit: cover;
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            }
-        }
+  section#boutique-section {
+    padding: 0 2rem; 
+
+    & h2 {
+      font-size: 3rem;
+      letter-spacing: 1.5px;
+      margin: 3rem;
     }
 
-    section#pictogrammes {
+    & #products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+
+      .product-card {
+        text-align: left;
+
+        & img {
+          width: 100%;
+          display: block;
+          border-radius: 5px;
+        }
+
+        & h3 {
+          font-size: 1.2rem;
+          margin: 0.5rem 0 0.3rem;
+          font-weight: 600;
+        }
+
+        & .color {
+          font-size: 0.9rem;
+          margin-bottom: 0.3rem;
+        }
+
+        & .price {
+          font-size: 1rem;
+          font-weight: bold;
+          color: #595959;
+        }
+
+        & .invisible {
+          visibility: hidden;
+        }
+      }
+    }
+  }
+  section#pourquoi-choisir-plunie {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      padding: 3rem 2rem;
+      min-height: 280px;
+      
+      & #texte-pourquoi {
+          flex: 1;
+          min-width: 280px;
+          & h2 {
+              line-height: 2.5;
+              font-size: 2rem;
+          }
+          &  ul {
+              line-height: 1.4;
+            
+            & li {
+              font-family: "Caviar Dreams";
+              color: #0f4e51;
+              margin-bottom: 1rem;
+            }
+            
+            & li strong {
+              font-weight: 800;
+              color: #156064; 
+            }
+          }
+      }
+      
+      & #image-pourquoi {
+          flex: 0 0 300px;
+          // max-width: 300px;
+          height: auto;
+          align-self: stretch;
+          & img {
+              width: 100%;
+              object-fit: cover;
+              border-radius: 8px;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          }
+      }
+  }
+
+  section#pictogrammes {
+    padding: 2rem 0;
+
+    & div#pictos-container {
+      width: 100%;
+      position: relative;
+
       & div#pictos-div {
         display: flex;
-        & .pictos {
-          max-width: 110px;
-        }
-
+        justify-content: center;
+        gap: 2rem;
+        transition: transform 0.6s ease-in-out;
+        will-change: transform;
         
-
-
+        & .pictos {
+          flex: 0 0 25%;
+          max-width: 180px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+          
+          & .image-picto {
+            max-width: 120px;
+            margin: 0 auto;
+            & img {
+              width: 100%;
+              transition: transform 0.3s ease;
+            }
+            
+            &:hover img {
+              transform: scale(1.05);
+            }
+          }
+          
+          & h4 {
+            margin: 0.8rem 0 0.4rem;
+          }
+          
+          & p.picto-description {
+            font-family: "Caviar Dreams";
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.4;
+          }
+        }
+        
+        & .pictos.appear {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
-
+      
+      & #carrousel-controls {
+        display: none;
+        justify-content: space-between;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        transform: translateY(-50%);
+        z-index: 2;
+        
+        & button {
+          background-color: rgba(255, 255, 255, 0.7);
+          border: none;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          font-size: 1.5rem;
+          color: #156064;
+          transition: background-color 0.3s ease;
+          
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+          }
+        }
+      }
     }
-
+  }
+}
 
 @media screen and (max-width: 768px) {
-    section#pourquoi-choisir-plunie {
-        flex-direction: column;
-        align-items: center;
-        min-height: auto;
+  section#pourquoi-choisir-plunie {
+      flex-direction: column;
+      align-items: center;
+      min-height: auto;
 
-        & #texte-pourquoi {
-            width: 100%;
-            & h2 {
-                font-size: 1.7rem;
-            }
-            &  ul {
-                  
-                & li {
-                    font-size: 1rem;
+      & #texte-pourquoi {
+          width: 100%;
+          & h2 {
+              font-size: 1.7rem;
+          }
+          &  ul {
                 
-                }
-                  
-                & li strong {
-                }
-            }
-        }
-            
-        & #image-pourquoi {
-            width: 100%;
-            max-width: none;
-            height: auto;
-            display: flex;
-            justify-content: center;
+              & li {
+                  font-size: 1rem;
+              
+              }
+                
+              & li strong {
+              }
+          }
+      }
+          
+      & #image-pourquoi {
+          width: 100%;
+          display: flex;
+          justify-content: center;
 
-            & img {
-                width: 60vw;
-                    // height: auto;
-                    // max-height: 400px;
-            }
-        }
-    }
+          & img {
+              width: 80%;
+              max-width: 400px;
+          }
+      }
+  }
+
+  section#pictogrammes {
+    margin: 2rem 0;
     
-
+    & div#pictos-container {
+      overflow: hidden;
+      width: 100%;
+      
+      & div#pictos-div {
+        width: auto;
+        gap: 0;
+        justify-content: flex-start;
+        
+        & .pictos {
+          flex: 0 0 100vw;
+          max-width: 100vw;
+          padding: 1rem;
+          box-sizing: border-box;
+          opacity: 1;
+          transform: translateY(0);
+          
+          & .image-picto {
+            max-width: 100px;
+            margin: 0 auto;
+          }
+          
+          & h4 {
+            margin: 1rem 0 0.5rem;
+            font-size: 1.2rem;
+          }
+          
+          & p.picto-description {
+            max-width: 80%;
+            margin: 0 auto;
+          }
+        }
+        
+        & .pictos.clone {
+          display: flex; /* On veut afficher les clones en mobile */
+        }
+      }
+      
+      & #carrousel-controls {
+        display: flex;
+        
+        & button {
+          margin: 0 0.5rem;
+        }
+      }
+    }
+  }
 }
-}
-
-
-  

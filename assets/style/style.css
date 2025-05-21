@@ -259,14 +259,6 @@ main {
   position: relative;
   margin: auto;
 }
-main section {
-  display: flex;
-  justify-content: center;
-  justify-content: space-around;
-  flex-direction: column;
-  align-items: center;
-}
-
 header {
   position: fixed;
   width: 100%;
@@ -277,6 +269,9 @@ header nav {
   margin: 0px auto;
   display: flex;
   justify-content: space-between;
+}
+header nav input#toggle-hamburger {
+  display: none;
 }
 header nav #logo img {
   width: 12vw;
@@ -292,9 +287,6 @@ header nav #nav ul {
   display: flex;
   flex-grow: 1;
   justify-content: space-around;
-}
-header nav #nav ul li i {
-  display: none;
 }
 header nav #nav ul li a {
   position: relative;
@@ -314,9 +306,6 @@ header nav #nav ul li a:after {
 header nav #nav ul li a:hover:after {
   transform: scaleX(1);
 }
-header #toggle-nav {
-  display: none;
-}
 
 #homepage-header {
   top: 0;
@@ -324,6 +313,9 @@ header #toggle-nav {
   width: 100%;
   height: auto; /* Ajuste la hauteur du header */
   z-index: 10; /* Pour le mettre au-dessus du hero-header */
+}
+#homepage-header nav input#toggle-hamburger {
+  display: none;
 }
 #homepage-header nav div a {
   color: #EFE7DD;
@@ -347,62 +339,95 @@ header #toggle-nav {
 }
 
 @media only screen and (max-width: 768px) {
+  header nav input#toggle-hamburger:not(:checked) ~ ul#nav-links {
+    height: 0%;
+  }
+  header nav input#toggle-hamburger:checked ~ #nav {
+    max-height: 500px;
+  }
+  header nav input#toggle-hamburger:checked ~ #menu-hamburger label span.line:nth-child(1) {
+    transform: translateY(12px) rotate(-45deg);
+  }
+  header nav input#toggle-hamburger:checked ~ #menu-hamburger label span.line:nth-child(2) {
+    opacity: 0;
+  }
+  header nav input#toggle-hamburger:checked ~ #menu-hamburger label span.line:nth-child(3) {
+    transform: translateY(-12px) rotate(45deg);
+  }
   header nav #nav {
-    position: fixed;
-    right: 0px;
-    top: calc(60px + 1rem);
-    padding: 8px;
-    transform: translateX(100vw);
-    transition: transform 0.7s;
-    background-color: #7bc5b5;
+    position: absolute;
     display: flex;
+    width: 80%;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.5s ease-out;
+    background-color: #7bc5b5;
     flex-direction: column;
-    width: 50vw;
-    max-width: 200px;
-    min-height: 300px;
-    height: 70vh;
-    border-radius: 8px 0 0 8px;
+    padding: 0 1rem;
+    border-radius: 0 0 8px 8px;
+    top: 100%;
   }
   header nav #nav ul {
     flex-direction: column;
-    width: -moz-fit-content;
-    width: fit-content;
+    gap: 1rem;
+    padding: 1rem 0;
+    margin: 0;
+    width: 100%;
   }
   header nav #nav ul li {
     display: flex;
     align-items: center;
   }
   header nav #nav ul li a {
-    display: flex;
-    width: -moz-fit-content;
-    width: fit-content;
     padding: 8px 0;
     color: #EFE7DD !important;
+    display: block;
   }
   header nav #nav ul li i {
     display: block;
     font-size: 16px;
     margin-right: 0.5rem;
   }
-  header nav #nav.mobile {
+  header nav #toggle-hamburger:checked ~ #nav {
     transform: translateX(0);
   }
-  header nav #id-toggle-nav {
+  header nav #menu-hamburger {
+    margin-right: 10vw;
     display: flex;
     align-items: center;
+    z-index: 30;
   }
-  header nav #id-toggle-nav i#toggle-nav {
-    display: block;
-    font-size: 30px;
-    padding-right: 1rem;
-    color: #156064;
-    cursor: url("/assets/cursor/icone_pied_coeur25px.cur"), pointer;
+  header nav #menu-hamburger label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 0;
+    width: 35px;
+    height: 60px;
+    position: relative;
+    cursor: pointer;
   }
-  #homepage-nav #id-toggle-nav #toggle-nav {
-    color: #EFE7DD;
+  header nav #menu-hamburger label span.line {
+    position: absolute;
+    border-radius: 8px;
+    height: 3px;
+    width: 100%;
+    background: #EFE7DD;
+    transition: transform 0.5s ease-out;
   }
-  #homepage-nav.out-of-hero #toggle-nav {
-    color: #156064;
+  header nav #menu-hamburger label span.line:nth-child(1) {
+    top: 13.5px;
+  }
+  header nav #menu-hamburger label span.line:nth-child(2) {
+    top: 25.5px;
+  }
+  header nav #menu-hamburger label span.line:nth-child(3) {
+    top: 37.5px;
+  }
+  header nav #menu-hamburger label .line.out-of-hero {
+    background: #156064;
   }
 }
 #hero-header {
@@ -586,11 +611,51 @@ main#accueil section#pourquoi-choisir-plunie #image-pourquoi img {
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-main#accueil section#pictogrammes div#pictos-div {
-  display: flex;
+main#accueil section#pictogrammes {
+  padding-bottom: 2rem;
 }
-main#accueil section#pictogrammes div#pictos-div .pictos {
-  max-width: 110px;
+main#accueil section#pictogrammes div#pictos-container {
+  width: 100%;
+  position: relative;
+}
+main#accueil section#pictogrammes div#pictos-container div#pictos-div {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+main#accueil section#pictogrammes div#pictos-container div#pictos-div .pictos {
+  flex: 0 0 25%;
+  max-width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+main#accueil section#pictogrammes div#pictos-container div#pictos-div .pictos .image-picto {
+  max-width: 120px;
+  margin: 0 auto;
+}
+main#accueil section#pictogrammes div#pictos-container div#pictos-div .pictos .image-picto img {
+  width: 100%;
+}
+main#accueil section#pictogrammes div#pictos-container div#pictos-div .pictos h4 {
+  margin-bottom: 4px;
+}
+main#accueil section#pictogrammes div#pictos-container div#pictos-div .pictos p {
+  font-family: "Cavia Dreams";
+}
+main#accueil section#pictogrammes div#pictos-container div#pictos-div .pictos.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+main#accueil section#pictogrammes div#pictos-container div#pictos-div .pictos.clone {
+  display: none;
+}
+main#accueil section#pictogrammes div#pictos-container #carrousel-controls {
+  display: none;
 }
 @media screen and (max-width: 768px) {
   main#accueil section#pourquoi-choisir-plunie {
@@ -616,5 +681,41 @@ main#accueil section#pictogrammes div#pictos-div .pictos {
   }
   main#accueil section#pourquoi-choisir-plunie #image-pourquoi img {
     width: 60vw;
+  }
+  main#accueil section#pictogrammes div#pictos-container {
+    overflow: hidden;
+    width: 100vw;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  main#accueil section#pictogrammes div#pictos-container div#pictos-div {
+    transform: translateX(0%);
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+  main#accueil section#pictogrammes div#pictos-container div#pictos-div .pictos {
+    flex: 0 0 100vw;
+    max-width: 100vw;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+  main#accueil section#pictogrammes div#pictos-container #carrousel-controls {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    pointer-events: none; /* permet aux boutons de ne pas bloquer les slides */
+  }
+  main#accueil section#pictogrammes div#pictos-container #carrousel-controls button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    pointer-events: all;
+    cursor: pointer;
+    padding: 0 1rem;
   }
 }/*# sourceMappingURL=style.css.map */
