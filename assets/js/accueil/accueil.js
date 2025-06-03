@@ -1,162 +1,250 @@
-//avec Claude
-document.addEventListener("DOMContentLoaded", () => {
-  const pictos_div = document.querySelector("#pictos-div");
-  const controls = document.querySelector("#carrousel-controls");
-  const prev_button = document.querySelector("#prev");
-  const next_button = document.querySelector("#next");
+// Carrousel Pictogrammes
+class PictogramCarousel {
+  constructor() {
+    this.container = document.getElementById("pictos-div");
+    this.items = document.querySelectorAll(".pictos");
+    this.prevBtn = document.getElementById("prev");
+    this.nextBtn = document.getElementById("next");
 
-  // Fonction pour vérifier si on est sur mobile
-  const is_mobile = () => window.innerWidth < 768;
+    this.currentIndex = 0;
+    this.itemsToShow = 1;
+    this.autoPlayInterval = null;
+    this.autoPlayDelay = 3000;
+    this.transitionDuration = 2000;
+    this.isAutoPlaying = false;
+    this.isPaused = false;
+    this.touchStartX = 0;
+    this.touchEndX = 0;
 
-  // Récupérer les pictogrammes originaux
-  const original_pictos = Array.from(document.querySelectorAll(".pictos"));
+    // Récupérer la position sauvegardée
+    this.loadSavedPosition();
 
-  // Cloner les pictos pour le carrousel mobile
-  function setupCarousel() {
-    // Nettoyer les éléments clonés précédents si besoin
-    document.querySelectorAll(".clone").forEach((clone) => clone.remove());
-
-    if (is_mobile()) {
-      // Ajouter les classes pour l'apparition
-      original_pictos.forEach((picto) => {
-        picto.classList.add("appear");
-      });
-
-      // Cloner le premier et le dernier picto
-      const first_clone = original_pictos[0].cloneNode(true);
-      const last_clone =
-        original_pictos[original_pictos.length - 1].cloneNode(true);
-
-      first_clone.classList.add("clone");
-      first_clone.id = "first-clone";
-      last_clone.classList.add("clone");
-      last_clone.id = "last-clone";
-
-      // Ajouter les clones au début et à la fin
-      pictos_div.insertBefore(last_clone, original_pictos[0]);
-      pictos_div.appendChild(first_clone);
-
-      // Positionner initialement sur le premier élément réel (index 1)
-      current_index = 1;
-      pictos_div.style.transition = "none";
-      pictos_div.style.transform = `translateX(-${current_index * 100}vw)`;
-
-      // Forcer un reflow pour que la transition "none" soit appliquée avant la prochaine
-      void pictos_div.offsetWidth;
-
-      // Activer le carrousel
-      startCarousel();
-    } else {
-      // Sur desktop, réinitialiser la position
-      pictos_div.style.transition = "none";
-      pictos_div.style.transform = "translateX(0)";
-
-      // Ajouter l'effet d'apparition au scroll
-      setupScrollObserver();
-    }
+    this.init();
   }
 
-  // Variable pour l'index courant et l'intervalle
-  let current_index = 1;
-  let carousel_interval;
-
-  // Fonctions pour le carrousel
-  function updateTransform() {
-    pictos_div.style.transition = "transform 0.6s ease-in-out";
-    pictos_div.style.transform = `translateX(-${current_index * 100}vw)`;
-  }
-
-  function nextSlide() {
-    current_index++;
-    updateTransform();
-  }
-
-  function prevSlide() {
-    current_index--;
-    updateTransform();
-  }
-
-  function startCarousel() {
-    if (is_mobile()) {
-      stopCarousel(); // Pour éviter les doublons
-      carousel_interval = setInterval(nextSlide, 4000);
-    }
-  }
-
-  function stopCarousel() {
-    clearInterval(carousel_interval);
-  }
-
-  // Gestion de la fin de transition pour le carrousel infini
-  pictos_div.addEventListener("transitionend", () => {
-    if (!is_mobile()) return;
-
-    const all_pictos = Array.from(pictos_div.children);
-
-    if (all_pictos[current_index].id === "last-clone") {
-      pictos_div.style.transition = "none";
-      current_index = all_pictos.length - 2;
-      pictos_div.style.transform = `translateX(-${current_index * 100}vw)`;
-    } else if (all_pictos[current_index].id === "first-clone") {
-      pictos_div.style.transition = "none";
-      current_index = 1;
-      pictos_div.style.transform = `translateX(-${current_index * 100}vw)`;
+  init() {
+    if (window.innerWidth <= 768) {
+      this.setupCarousel();
+      this.startAutoPlay();
     }
 
-    // Forcer un reflow pour que la transition "none" soit appliquée avant la prochaine
-    void pictos_div.offsetWidth;
-  });
+    // Event listeners
+    this.prevBtn?.addEventListener("click", () => this.prev());
+    this.nextBtn?.addEventListener("click", () => this.next());
 
-  // Configuration de l'observer pour l'effet d'apparition au scroll
-  function setupScrollObserver() {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("appear");
-          }
-        });
-      },
-      { threshold: 0.2 }
+    // Responsive
+    window.addEventListener("resize", () => this.handleResize());
+
+    // Touch events pour mobile
+    this.container.addEventListener("touchstart", (e) =>
+      this.handleTouchStart(e)
     );
+    this.container.addEventListener("touchend", (e) => this.handleTouchEnd(e));
 
-    original_pictos.forEach((el) => observer.observe(el));
+    // Pause au survol (desktop) ou au toucher (mobile)
+    this.container.addEventListener("mouseenter", () => this.pauseAutoPlay());
+    this.container.addEventListener("mouseleave", () => this.resumeAutoPlay());
+
+    // Pour mobile : pause au premier tap, reprend au second
+    this.container.addEventListener("click", (e) => this.handleMobileTouch(e));
+
+    // Sauvegarde de la position quand on quitte la vue
+    document.addEventListener("visibilitychange", () =>
+      this.handleVisibilityChange()
+    );
+    window.addEventListener("scroll", () => this.savePosition());
   }
 
-  // Événements pour les boutons de navigation
-  next_button.addEventListener("click", () => {
-    stopCarousel();
-    nextSlide();
-    // Redémarrer le carrousel après un délai
-    setTimeout(startCarousel, 5000);
-  });
+  setupCarousel() {
+    // Ajouter une classe pour identifier le mode carrousel
+    this.container.classList.add("carousel-mode");
 
-  prev_button.addEventListener("click", () => {
-    stopCarousel();
-    prevSlide();
-    // Redémarrer le carrousel après un délai
-    setTimeout(startCarousel, 5000);
-  });
+    // Clone les éléments pour créer une boucle infinie
+    this.items.forEach((item) => {
+      const clone = item.cloneNode(true);
+      clone.classList.add("clone");
+      this.container.appendChild(clone);
+    });
 
-  // Pause au survol/toucher
-  pictos_div.addEventListener("mouseenter", stopCarousel);
-  pictos_div.addEventListener("mouseleave", startCarousel);
-  pictos_div.addEventListener("touchstart", stopCarousel);
-  pictos_div.addEventListener("touchend", () =>
-    setTimeout(startCarousel, 5000)
-  );
+    // // Ajuster la largeur du conteneur
+    this.updateContainerWidth();
 
-  // Gestion du redimensionnement
-  function handleResize() {
-    stopCarousel();
-    setupCarousel();
+    // Positionner au bon endroit
+    this.goToSlide(this.currentIndex, false);
   }
 
-  window.addEventListener("resize", handleResize);
+  updateContainerWidth() {}
 
-  // Configuration initiale
-  setupScrollObserver();
-  handleResize();
+  goToSlide(index, animate = true) {
+    const allItems = this.container.querySelectorAll(".pictos");
+    const itemWidth = 100 / allItems.length;
+    const translateX = -index * itemWidth;
+
+    if (animate) {
+      this.container.style.transition = `transform ${this.transitionDuration}ms cubic-bezier(0.25, 0.1, 0.25, 1)`;
+    } else {
+      this.container.style.transition = "none";
+    }
+
+    this.container.style.transform = `translateX(${translateX}%)`;
+
+    // Gérer la boucle infinie
+    if (animate && (index >= this.items.length || index < 0)) {
+      setTimeout(() => {
+        this.container.style.transition = "none";
+        if (index >= this.items.length) {
+          this.currentIndex = 0;
+          this.container.style.transform = `translateX(0%)`;
+        } else if (index < 0) {
+          this.currentIndex = this.items.length - 1;
+          const newTranslateX = -this.currentIndex * itemWidth;
+          this.container.style.transform = `translateX(${newTranslateX}%)`;
+        }
+      }, this.transitionDuration);
+    }
+  }
+
+  next() {
+    this.currentIndex++;
+    this.goToSlide(this.currentIndex);
+    this.savePosition();
+  }
+
+  prev() {
+    this.currentIndex--;
+    this.goToSlide(this.currentIndex);
+    this.savePosition();
+  }
+
+  startAutoPlay() {
+    if (window.innerWidth <= 768 && !this.isAutoPlaying) {
+      this.isAutoPlaying = true;
+      this.autoPlayInterval = setInterval(() => {
+        if (!this.isPaused) {
+          this.next();
+        }
+      }, this.autoPlayDelay + this.transitionDuration);
+    }
+  }
+
+  stopAutoPlay() {
+    if (this.autoPlayInterval) {
+      clearInterval(this.autoPlayInterval);
+      this.autoPlayInterval = null;
+      this.isAutoPlaying = false;
+    }
+  }
+
+  pauseAutoPlay() {
+    this.isPaused = true;
+  }
+
+  resumeAutoPlay() {
+    this.isPaused = false;
+  }
+
+  handleMobileTouch(e) {
+    // Ne pas interférer avec les boutons de navigation
+    if (e.target.closest("#prev") || e.target.closest("#next")) {
+      return;
+    }
+
+    if (window.innerWidth <= 768) {
+      if (this.isPaused) {
+        this.resumeAutoPlay();
+        this.container.classList.remove("paused");
+      } else {
+        this.pauseAutoPlay();
+        this.container.classList.add("paused");
+      }
+    }
+  }
+
+  handleTouchStart(e) {
+    this.touchStartX = e.touches[0].clientX;
+  }
+
+  handleTouchEnd(e) {
+    this.touchEndX = e.changedTouches[0].clientX;
+    this.handleSwipe();
+  }
+
+  handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = this.touchStartX - this.touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        // Swipe left - next
+        this.next();
+      } else {
+        // Swipe right - prev
+        this.prev();
+      }
+    }
+  }
+
+  handleResize() {
+    if (window.innerWidth <= 768) {
+      if (!this.isAutoPlaying) {
+        this.setupCarousel();
+        this.startAutoPlay();
+      }
+    } else {
+      this.stopAutoPlay();
+      this.resetCarousel();
+    }
+  }
+
+  resetCarousel() {
+    // Retirer la classe carousel-mode
+    this.container.classList.remove("carousel-mode");
+
+    // Supprimer les clones
+    this.container
+      .querySelectorAll(".clone")
+      .forEach((clone) => clone.remove());
+
+    // Réinitialiser les styles
+    this.container.style.width = "";
+    this.container.style.transform = "";
+    this.container.style.transition = "";
+
+    this.items.forEach((item) => {
+      item.style.width = "";
+    });
+  }
+
+  savePosition() {
+    localStorage.setItem(
+      "pictogramCarouselIndex",
+      this.currentIndex.toString()
+    );
+  }
+
+  loadSavedPosition() {
+    const savedIndex = localStorage.getItem("pictogramCarouselIndex");
+    if (savedIndex !== null) {
+      this.currentIndex = parseInt(savedIndex, 10);
+      // S'assurer que l'index est valide
+      if (this.currentIndex >= this.items.length) {
+        this.currentIndex = 0;
+      }
+    }
+  }
+
+  handleVisibilityChange() {
+    if (document.hidden) {
+      this.stopAutoPlay();
+    } else if (window.innerWidth <= 768) {
+      this.startAutoPlay();
+    }
+  }
+}
+
+// Initialiser le carrousel quand le DOM est chargé
+document.addEventListener("DOMContentLoaded", () => {
+  new PictogramCarousel();
 });
 
 //changement de couleur au scroll

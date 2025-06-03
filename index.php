@@ -101,6 +101,7 @@
             </div>
 
         </section>
+        <div class="reveal-window"></div>
         <section id="pourquoi-choisir-plunie">
             <div id="texte-pourquoi">
                 <h2>Pourquoi choisir Plunie ?</h2>
@@ -126,27 +127,27 @@
                 <div id="pictos-div">
 
                     <div class="pictos">
-                        <div class="image-picto"><img src="./assets/photos/pictos/toe_box_anatomique.png" alt="Forme anatomique"></div>
+                        <div class="image-picto"><img src="/assets/photos/pictos/toe_box_anatomique.png" alt="Forme anatomique"></div>
                         <h4>Forme anatomique</h4>
                         <p class="picto-description">respectueuse de la forme naturelle
                             du pied</p>
                     </div>
 
                     <div class="pictos">
-                        <div class="image-picto"><img src="./assets/photos/pictos/souplesse.png" alt="Semelle flexible"></div>
+                        <div class="image-picto"><img src="/assets/photos/pictos/souplesse.png" alt="Semelle flexible"></div>
                         <h4>Semelle flexible</h4>
                         <p class="picto-description">en longueur et en largeur</p>
                     </div>
 
                     <div class="pictos">
-                        <div class="image-picto"><img src="./assets/photos/pictos/sensation_pieds_nus.png" alt="Sensation pieds nus"></div>
+                        <div class="image-picto"><img src="/assets/photos/pictos/sensation_pieds_nus.png" alt="Sensation pieds nus"></div>
                         <h4>Forme anatomique</h4>
                         <p class="picto-description">respectueuse de la forme naturelle
                             du pied</p>
                     </div>
 
                     <div class="pictos">
-                        <div class="image-picto"><img src="./assets/photos/pictos/conception_europeenne.png" alt="Fabrication artisanale"></div>
+                        <div class="image-picto"><img src="/assets/photos/pictos/conception_europeenne.png" alt="Fabrication artisanale"></div>
                         <h4>Fabriquées artisanalement</h4>
                         <p class="picto-description">au Portugal, avec des matériaux européens de qualité</p>
                     </div>

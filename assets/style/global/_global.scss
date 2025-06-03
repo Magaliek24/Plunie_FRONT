@@ -167,11 +167,24 @@ a.active:not(#logo a):not(#reseaux-mobile a):not(#reseaux a):after {
 
 
 main {
-    max-width: 1280px;
+    // max-width: 1280px;
     position: relative;
-    margin: auto;
+    // margin: auto;
     & section {
+        width: 100%;
+        background-color: #EFE7DD;
+
+        & > * {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+    }
+}
+        
+.reveal-window {
+    background-color: transparent !important;
+    height: 40vh;
+    width: 100%;
+}
 
 
-}
-}
