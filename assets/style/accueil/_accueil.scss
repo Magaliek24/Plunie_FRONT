@@ -2,7 +2,16 @@
 
 main#accueil {
   section#boutique-section {
-    padding: 0 2rem; 
+    background-color: #EFE7DD; // Fond opaque
+    position: relative;
+    z-index: 10;
+    padding: 60px 0;
+
+    & > * {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
     & h2 {
       font-size: 3rem;
@@ -47,132 +56,150 @@ main#accueil {
       }
     }
   }
+
+  div.reveal-window{
+    background-color: transparent;
+  }
   section#pourquoi-choisir-plunie {
-      display: flex;
+      background-color: #EFE7DD;
       flex-direction: row;
       gap: 2rem;
       padding: 3rem 2rem;
       min-height: 280px;
+      align-items: stretch;
+      // position: relative;
+      // z-index: 10;
+      // padding: 60px 0;
       
-      & #texte-pourquoi {
-          flex: 1;
-          min-width: 280px;
-          & h2 {
-              line-height: 2.5;
+       & > div {
+            max-width: 1280px;
+            // margin: 0 auto;
+            // padding: 0 2rem;
+            // display: flex;
+            // flex-direction: row;
+            // gap: 2rem;
+            // min-height: 280px;
+            // align-items: stretch;
+       }
+        
+        & #texte-pourquoi {
+            flex: 1;
+            min-width: 280px;
+            & h2 {
+              margin-bottom: 1.5rem;
+              margin-top: 0.5rem;  
               font-size: 2rem;
-          }
-          &  ul {
-              line-height: 1.4;
-            
-            & li {
-              font-family: "Caviar Dreams";
-              color: #0f4e51;
-              margin-bottom: 1rem;
             }
-            
-            & li strong {
-              font-weight: 800;
-              color: #156064; 
+            &  ul {
+                line-height: 1.4;
+              
+              & li {
+                font-family: "Caviar Dreams";
+                color: #0f4e51;
+                margin-bottom: 1rem;
+              }
+              
+              & li strong {
+                font-weight: 800;
+                color: #156064; 
+              }
             }
-          }
-      }
+        
       
-      & #image-pourquoi {
-          flex: 0 0 300px;
-          // max-width: 300px;
-          height: auto;
-          align-self: stretch;
-          & img {
-              width: 100%;
-              object-fit: cover;
-              border-radius: 8px;
-              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-          }
+        & #image-pourquoi {
+            flex: 0 0 300px;
+            // max-width: 300px;
+            max-width: 400px;
+            position: relative;
+            overflow: hidden;
+            & img {
+                width: 100%;
+                height: 120%;
+                object-fit: cover;
+                object-position: center;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+        }
       }
   }
-
   section#pictogrammes {
-    padding: 2rem 0;
+    background-color: #EFE7DD; // Fond opaque
+    position: relative;
+    z-index: 10;
+    padding: 60px 20px;
+    overflow: hidden;
+
+    &:not(.revealed) {
+      & .pictos {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+    }
+
+    &.revealed {
+      & .pictos {
+        opacity: 1;
+        transform: translateY(0);
+        
+        &:nth-child(1) { transition-delay: 0.1s; }
+        &:nth-child(2) { transition-delay: 0.2s; }
+        &:nth-child(3) { transition-delay: 0.3s; }
+        &:nth-child(4) { transition-delay: 0.4s; }
+      }
+    }
+
 
     & div#pictos-container {
-      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
       position: relative;
 
       & div#pictos-div {
         display: flex;
-        justify-content: center;
-        gap: 2rem;
-        transition: transform 0.6s ease-in-out;
-        will-change: transform;
+        justify-content: space-around;
+        align-items: flex-start;
+        gap: 30px;
+
         
         & .pictos {
-          flex: 0 0 25%;
-          max-width: 180px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
+          flex: 1;
           text-align: center;
-          opacity: 0;
-          transform: translateY(20px);
-          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-          
+          max-width: 15%;
+          transition: opacity 0.8s ease-out, transform 0.8s ease-out;
           & .image-picto {
-            max-width: 120px;
-            margin: 0 auto;
+            width: 90%;
+            margin: 0 auto 20px;
+            
             & img {
               width: 100%;
-              transition: transform 0.3s ease;
+              height: auto;
+              object-fit: contain;
             }
             
             &:hover img {
-              transform: scale(1.05);
+              transform: scale(1.1);
             }
           }
           
           & h4 {
-            margin: 0.8rem 0 0.4rem;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
           }
           
           & p.picto-description {
             font-family: "Caviar Dreams";
             font-size: 0.9rem;
-            margin: 0;
-            line-height: 1.4;
+            line-height: 1.6;
           }
         }
-        
-        & .pictos.appear {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      
+      }  
       & #carrousel-controls {
         display: none;
-        justify-content: space-between;
-        position: absolute;
-        top: 50%;
-        width: 100%;
-        transform: translateY(-50%);
-        z-index: 2;
         
         & button {
-          background-color: rgba(255, 255, 255, 0.7);
-          border: none;
-          border-radius: 50%;
-          width: 40px;
-          height: 40px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          font-size: 1.5rem;
-          color: #156064;
-          transition: background-color 0.3s ease;
           
-          &:hover {
-            background-color: rgba(255, 255, 255, 0.9);
-          }
+          
         }
       }
     }
@@ -180,6 +207,7 @@ main#accueil {
 }
 
 @media screen and (max-width: 768px) {
+  main#accueil {
   section#pourquoi-choisir-plunie {
       flex-direction: column;
       align-items: center;
@@ -187,6 +215,7 @@ main#accueil {
 
       & #texte-pourquoi {
           width: 100%;
+          order: 1;
           & h2 {
               font-size: 1.7rem;
           }
@@ -204,64 +233,129 @@ main#accueil {
           
       & #image-pourquoi {
           width: 100%;
+          order: 2;
+          flex: 0 0 auto; //reset du flex
+          max-width: none; //reset de la largeur max
+          height: auto;
           display: flex;
           justify-content: center;
+          margin-top: 2rem;
 
           & img {
               width: 80%;
-              max-width: 400px;
+              height: auto;
+              background-color: transparent;
           }
       }
   }
 
   section#pictogrammes {
-    margin: 2rem 0;
     
     & div#pictos-container {
       overflow: hidden;
-      width: 100%;
       
       & div#pictos-div {
-        width: auto;
+        display: flex;
         gap: 0;
-        justify-content: flex-start;
-        
-        & .pictos {
-          flex: 0 0 100vw;
-          max-width: 100vw;
-          padding: 1rem;
-          box-sizing: border-box;
-          opacity: 1;
-          transform: translateY(0);
-          
-          & .image-picto {
-            max-width: 100px;
-            margin: 0 auto;
-          }
-          
-          & h4 {
-            margin: 1rem 0 0.5rem;
-            font-size: 1.2rem;
-          }
-          
-          & p.picto-description {
-            max-width: 80%;
-            margin: 0 auto;
+
+        &.carousel-mode {
+          width:800%;
+          transition: transform 2s cubic-bezier(0.25, 0.1, 0.25, 1); // Même durée que dans JS
+          & .pictos {
+            flex: 0 0 12.5%;
+            width: 12.5%;
+            text-align: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+            max-width: none;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            
+            & .image-picto {
+              width: 25vw !important;
+              margin: 0 0 15px 0 !important;
+              min-width: 150px;
+              & img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+              }
+            }
+            
+            & h4 {
+              margin-bottom: 10px;
+              font-size: 1.2rem;
+            }
+            
+            & p.picto-description {
+              max-width: 90%;
+              font-size: 13px;;
+              line-height: 1.5;
+              margin: 0 auto;
+            }
           }
         }
-        
-        & .pictos.clone {
-          display: flex; /* On veut afficher les clones en mobile */
+
+        // Mode sans carrousel (fallback)
+        &:not(.carousel-mode) {
+          flex-wrap: wrap;
+          justify-content: center;
+          width: 100%;
+
+          & .pictos {
+            flex: 0 0 100%;
+            margin-bottom: 20px;
+          }
         }
+
       }
       
       & #carrousel-controls {
-        display: flex;
+        display: flex !important;
+        justify-content: space-between;
+        gap: 20px;
+        margin-top: 30px;
+        top: 50%;
+        // width: 100%;
+        transform: translateY(-50%);
+        // z-index: 2;
+
         
         & button {
-          margin: 0 0.5rem;
+          border: none;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          font-size: 1.5rem;
+          color: #156064;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #7Bc5B5;
+          }
+
+          &:active {
+            transform: scale(0.95);
+          }
         }
       }
     }
   }
+}
+
+// Styles additionnels pour l'accessibilité
+@media (prefers-reduced-motion: reduce) {
+    #pictos-div {
+        transition: none !important;
+    }
+    
+    .pictos .image-picto img {
+        transition: none !important;
+    }
+}
 }
