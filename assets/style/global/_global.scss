@@ -61,18 +61,27 @@
 * {
     scroll-behavior: smooth;
     color: #156064;
-    // background-color: #EFE7DD;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     background-color: #EFE7DD;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 html {
     font-family: "Caviar Dreams Bold";
     height: 100vh; /* Fallback for browsers that do not support Custom properties*/
     height: calc(var(--vh, 1vh) * 100);
-
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 header {
@@ -86,11 +95,9 @@ button {
     font-size: 20px;
     background: transparent;
     color: #156064;
-    padding: 12px 30px;
     border-radius: 6px;
     border-style: solid;
     border-color: #156064;
-    backdrop-filter: blur(5px);
     width: fit-content;
     cursor: url('/assets/cursor/icone_pied_coeur25px.cur'), pointer;
 }
@@ -167,24 +174,46 @@ a.active:not(#logo a):not(#reseaux-mobile a):not(#reseaux a):after {
 
 
 main {
-    // max-width: 1280px;
     position: relative;
-    // margin: auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    
     & section {
         width: 100%;
-        background-color: #EFE7DD;
-
-        & > * {
-            max-width: 1280px;
-            margin: 0 auto;
-        }
+        position: relative;
+        margin: 0;
+        padding: 0;
+        display: block;
     }
 }
-        
-.reveal-window {
-    background-color: transparent !important;
-    height: 40vh;
-    width: 100%;
+
+// Règles pour améliorer le centrage
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
 }
+
+
+// Fix pour les conteneurs flex
+[class*="container"],
+[id*="container"] {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// Empêche le débordement horizontal
+* {
+    max-width: 100%;
+}
+
+*:not(img):not(svg):not(video) {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+
+
 
 

@@ -1,258 +1,33 @@
-// Carrousel Pictogrammes
-class PictogramCarousel {
-  constructor() {
-    this.container = document.getElementById("pictos-div");
-    this.items = document.querySelectorAll(".pictos");
-    this.prevBtn = document.getElementById("prev");
-    this.nextBtn = document.getElementById("next");
-
-    this.currentIndex = 0;
-    this.itemsToShow = 1;
-    this.autoPlayInterval = null;
-    this.autoPlayDelay = 3000;
-    this.transitionDuration = 2000;
-    this.isAutoPlaying = false;
-    this.isPaused = false;
-    this.touchStartX = 0;
-    this.touchEndX = 0;
-
-    // Récupérer la position sauvegardée
-    this.loadSavedPosition();
-
-    this.init();
+// Effet parallaxe
+function init_parallax() {
+  // seulement sur desktop
+  if (window.innerWidth <= 768) {
+    document.body.classList.add("no-parallax");
+    return;
   }
 
-  init() {
-    if (window.innerWidth <= 768) {
-      this.setupCarousel();
-      this.startAutoPlay();
-    }
+  const parallax_image = document.querySelector(".parallax-image");
+  if (!parallax_image) return;
 
-    // Event listeners
-    this.prevBtn?.addEventListener("click", () => this.prev());
-    this.nextBtn?.addEventListener("click", () => this.next());
+  const speed = 0.5; // bouge 2x moins vite que le scroll
 
-    // Responsive
-    window.addEventListener("resize", () => this.handleResize());
-
-    // Touch events pour mobile
-    this.container.addEventListener("touchstart", (e) =>
-      this.handleTouchStart(e)
-    );
-    this.container.addEventListener("touchend", (e) => this.handleTouchEnd(e));
-
-    // Pause au survol (desktop) ou au toucher (mobile)
-    this.container.addEventListener("mouseenter", () => this.pauseAutoPlay());
-    this.container.addEventListener("mouseleave", () => this.resumeAutoPlay());
-
-    // Pour mobile : pause au premier tap, reprend au second
-    this.container.addEventListener("click", (e) => this.handleMobileTouch(e));
-
-    // Sauvegarde de la position quand on quitte la vue
-    document.addEventListener("visibilitychange", () =>
-      this.handleVisibilityChange()
-    );
-    window.addEventListener("scroll", () => this.savePosition());
+  function update_parallax() {
+    const scroll_y = window.pageYOffset;
+    const translate_y = scroll_y * speed;
+    parallax_image.style.transform = `translateY(-${translate_y}px)`;
   }
 
-  setupCarousel() {
-    // Ajouter une classe pour identifier le mode carrousel
-    this.container.classList.add("carousel-mode");
+  // Ecoute le scroll
+  window.addEventListener("scroll", update_parallax);
 
-    // Clone les éléments pour créer une boucle infinie
-    this.items.forEach((item) => {
-      const clone = item.cloneNode(true);
-      clone.classList.add("clone");
-      this.container.appendChild(clone);
-    });
+  // Position initiale
+  update_parallax();
 
-    // // Ajuster la largeur du conteneur
-    this.updateContainerWidth();
-
-    // Positionner au bon endroit
-    this.goToSlide(this.currentIndex, false);
-  }
-
-  updateContainerWidth() {}
-
-  goToSlide(index, animate = true) {
-    const allItems = this.container.querySelectorAll(".pictos");
-    const itemWidth = 100 / allItems.length;
-    const translateX = -index * itemWidth;
-
-    if (animate) {
-      this.container.style.transition = `transform ${this.transitionDuration}ms cubic-bezier(0.25, 0.1, 0.25, 1)`;
-    } else {
-      this.container.style.transition = "none";
-    }
-
-    this.container.style.transform = `translateX(${translateX}%)`;
-
-    // Gérer la boucle infinie
-    if (animate && (index >= this.items.length || index < 0)) {
-      setTimeout(() => {
-        this.container.style.transition = "none";
-        if (index >= this.items.length) {
-          this.currentIndex = 0;
-          this.container.style.transform = `translateX(0%)`;
-        } else if (index < 0) {
-          this.currentIndex = this.items.length - 1;
-          const newTranslateX = -this.currentIndex * itemWidth;
-          this.container.style.transform = `translateX(${newTranslateX}%)`;
-        }
-      }, this.transitionDuration);
-    }
-  }
-
-  next() {
-    this.currentIndex++;
-    this.goToSlide(this.currentIndex);
-    this.savePosition();
-  }
-
-  prev() {
-    this.currentIndex--;
-    this.goToSlide(this.currentIndex);
-    this.savePosition();
-  }
-
-  startAutoPlay() {
-    if (window.innerWidth <= 768 && !this.isAutoPlaying) {
-      this.isAutoPlaying = true;
-      this.autoPlayInterval = setInterval(() => {
-        if (!this.isPaused) {
-          this.next();
-        }
-      }, this.autoPlayDelay + this.transitionDuration);
-    }
-  }
-
-  stopAutoPlay() {
-    if (this.autoPlayInterval) {
-      clearInterval(this.autoPlayInterval);
-      this.autoPlayInterval = null;
-      this.isAutoPlaying = false;
-    }
-  }
-
-  pauseAutoPlay() {
-    this.isPaused = true;
-  }
-
-  resumeAutoPlay() {
-    this.isPaused = false;
-  }
-
-  handleMobileTouch(e) {
-    // Ne pas interférer avec les boutons de navigation
-    if (e.target.closest("#prev") || e.target.closest("#next")) {
-      return;
-    }
-
-    if (window.innerWidth <= 768) {
-      if (this.isPaused) {
-        this.resumeAutoPlay();
-        this.container.classList.remove("paused");
-      } else {
-        this.pauseAutoPlay();
-        this.container.classList.add("paused");
-      }
-    }
-  }
-
-  handleTouchStart(e) {
-    this.touchStartX = e.touches[0].clientX;
-  }
-
-  handleTouchEnd(e) {
-    this.touchEndX = e.changedTouches[0].clientX;
-    this.handleSwipe();
-  }
-
-  handleSwipe() {
-    const swipeThreshold = 50;
-    const diff = this.touchStartX - this.touchEndX;
-
-    if (Math.abs(diff) > swipeThreshold) {
-      if (diff > 0) {
-        // Swipe left - next
-        this.next();
-      } else {
-        // Swipe right - prev
-        this.prev();
-      }
-    }
-  }
-
-  handleResize() {
-    if (window.innerWidth <= 768) {
-      if (!this.isAutoPlaying) {
-        this.setupCarousel();
-        this.startAutoPlay();
-      }
-    } else {
-      this.stopAutoPlay();
-      this.resetCarousel();
-    }
-  }
-
-  resetCarousel() {
-    // Retirer la classe carousel-mode
-    this.container.classList.remove("carousel-mode");
-
-    // Supprimer les clones
-    this.container
-      .querySelectorAll(".clone")
-      .forEach((clone) => clone.remove());
-
-    // Réinitialiser les styles
-    this.container.style.width = "";
-    this.container.style.transform = "";
-    this.container.style.transition = "";
-
-    this.items.forEach((item) => {
-      item.style.width = "";
-    });
-  }
-
-  savePosition() {
-    localStorage.setItem(
-      "pictogramCarouselIndex",
-      this.currentIndex.toString()
-    );
-  }
-
-  loadSavedPosition() {
-    const savedIndex = localStorage.getItem("pictogramCarouselIndex");
-    if (savedIndex !== null) {
-      this.currentIndex = parseInt(savedIndex, 10);
-      // S'assurer que l'index est valide
-      if (this.currentIndex >= this.items.length) {
-        this.currentIndex = 0;
-      }
-    }
-  }
-
-  handleVisibilityChange() {
-    if (document.hidden) {
-      this.stopAutoPlay();
-    } else if (window.innerWidth <= 768) {
-      this.startAutoPlay();
-    }
-  }
+  document.body.classList.remove("no-parallax");
 }
 
-// Initialiser le carrousel quand le DOM est chargé
-document.addEventListener("DOMContentLoaded", () => {
-  new PictogramCarousel();
-});
-
-//changement de couleur au scroll
-window.addEventListener("scroll", handle_scroll);
-handle_scroll(); // exécute au chargement
-
 function handle_scroll() {
-  const header = document.getElementById("homepage-nav");
+  const header = document.getElementById("homepage-header");
   const span_lines = document.querySelectorAll(".line");
   const hero = document.getElementById("hero-header");
 
@@ -274,3 +49,157 @@ function handle_scroll() {
     span_lines.forEach((line) => line.classList.remove("out-of-hero"));
   }
 }
+
+// 3. Carrousel des pictogrammes
+function init_carousel() {
+  const pictos_div = document.getElementById("pictos-div");
+  if (!pictos_div) return;
+
+  const pictos = pictos_div.querySelectorAll(".pictos");
+  const prev_btn = document.getElementById("prev");
+  const next_btn = document.getElementById("next");
+  const dots_container = document.getElementById("dots-container");
+
+  if (!prev_btn || !next_btn || !dots_container || pictos.length === 0) return;
+
+  let current_index = 0;
+  let autoplay_timeout = null; // Un seul timer pour tout gérer
+  const SLIDE_DURATION = 6000;
+  const LAST_SLIDE_PAUSE = 4000;
+  const RESUME_DELAY = 6000;
+
+  // --- Génération des points ---
+  dots_container.innerHTML = ""; // Vide les points au cas où
+  pictos.forEach((_, index) => {
+    const dot = document.createElement("button");
+    dot.setAttribute("aria-label", `Voir le pictogramme ${index + 1}`);
+    if (index === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => {
+      update_slide(index);
+      pause_autoplay();
+    });
+    dots_container.appendChild(dot);
+  });
+  const dots = dots_container.querySelectorAll("button");
+
+  // --- Fonctions du carrousel ---
+  const update_slide = (index, behavior = "smooth") => {
+    // Le paramètre "behavior" nous permet de contrôler l'animation
+    if (index < 0) index = pictos.length - 1;
+    if (index >= pictos.length) index = 0;
+    current_index = index;
+
+    pictos_div.scrollTo({
+      left: pictos_div.offsetWidth * current_index,
+      behavior: behavior, // Utilise le comportement spécifié
+    });
+
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle("active", idx === current_index);
+    });
+  };
+
+  // NOUVELLE LOGIQUE D'AUTOPLAY PLUS PRÉCISE
+  const play_next_slide = () => {
+    clearTimeout(autoplay_timeout); // On s'assure qu'il n'y a pas de timers fantômes
+
+    const is_last_slide = current_index === pictos.length - 1;
+    const delay = is_last_slide ? LAST_SLIDE_PAUSE : SLIDE_DURATION;
+
+    autoplay_timeout = setTimeout(() => {
+      let next_index = current_index + 1;
+      // Pour le retour au début, on utilise un scroll instantané
+      if (next_index >= pictos.length) {
+        update_slide(0, "instant");
+      } else {
+        update_slide(next_index, "smooth");
+      }
+      play_next_slide(); // On relance la boucle
+    }, delay);
+  };
+
+  const start_autoplay = () => {
+    if (!window.matchMedia("(max-width: 768px)").matches) return;
+    play_next_slide();
+  };
+
+  const pause_autoplay = () => {
+    clearTimeout(autoplay_timeout);
+    // On programme une relance après le délai d'inactivité
+    autoplay_timeout = setTimeout(start_autoplay, RESUME_DELAY);
+  };
+
+  // --- Écouteurs d'événements ---
+  next_btn.addEventListener("click", () => {
+    update_slide(current_index + 1);
+    pause_autoplay();
+  });
+
+  prev_btn.addEventListener("click", () => {
+    update_slide(current_index - 1);
+    pause_autoplay();
+  });
+
+  // --- Gestion du swipe et du redimensionnement ---
+  let touch_start_x = null;
+  pictos_div.addEventListener("touchstart", (e) => {
+    touch_start_x = e.changedTouches[0].screenX;
+    clearTimeout(autoplay_timeout); // Pause immédiate
+  });
+
+  pictos_div.addEventListener("touchend", (e) => {
+    const dx = e.changedTouches[0].screenX - touch_start_x;
+    if (dx < -50) update_slide(current_index + 1);
+    if (dx > 50) update_slide(current_index - 1);
+    pause_autoplay(); // Relance le timer d'inactivité
+  });
+
+  window.addEventListener("resize", () => {
+    clearTimeout(autoplay_timeout);
+    update_slide(current_index, "instant");
+    start_autoplay();
+  });
+
+  // --- Lancement initial ---
+  start_autoplay();
+}
+
+// Fonction pour déclencher l'animation du H1
+function trigger_h1_animation() {
+  document.body.classList.add("h1-ready");
+}
+
+// Fonction pour indiquer que l'image de fond est chargée
+function mark_background_loaded() {
+  document.body.classList.add("bg-loaded");
+}
+
+// L'addEventListener reste à la fin et appelle toutes les fonctions
+window.addEventListener("scroll", handle_scroll);
+handle_scroll(); // exécute au chargement le changement de couleur au scroll
+
+// un seul DOMContentLoaded pour tout
+document.addEventListener("DOMContentLoaded", () => {
+  init_parallax();
+  init_carousel();
+
+  // Déclencher l'animation du H1 après un court délai (pour permettre au DOM de se stabiliser)
+  setTimeout(() => {
+    trigger_h1_animation();
+  }, 100);
+});
+
+// Préchargement manuel de la photo de fond
+var bg_photo = new window.Image();
+bg_photo.src = "/assets/photos/plunie_chaussures_barefoot.webp";
+
+bg_photo.onload = function () {
+  mark_background_loaded();
+};
+
+// Fallback si l'image ne charge pas sous 3 sec
+setTimeout(() => {
+  if (!document.body.classList.contains("bg-loaded")) {
+    mark_background_loaded();
+  }
+}, 3000);

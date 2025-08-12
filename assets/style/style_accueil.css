@@ -1,0 +1,1096 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@font-face {
+  font-family: "Abril Fatface";
+  src: url("https://db.onlinewebfonts.com/t/4abc7b446177a4b533468cd3635fe0b6.eot");
+  src: url("https://db.onlinewebfonts.com/t/4abc7b446177a4b533468cd3635fe0b6.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/4abc7b446177a4b533468cd3635fe0b6.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/4abc7b446177a4b533468cd3635fe0b6.woff") format("woff"), url("https://db.onlinewebfonts.com/t/4abc7b446177a4b533468cd3635fe0b6.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/4abc7b446177a4b533468cd3635fe0b6.svg#Abril Fatface") format("svg");
+}
+@font-face {
+  font-family: "Caviar Dreams";
+  src: url("https://db.onlinewebfonts.com/t/b272450a19485b6e0cefb63200382c4a.eot");
+  src: url("https://db.onlinewebfonts.com/t/b272450a19485b6e0cefb63200382c4a.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/b272450a19485b6e0cefb63200382c4a.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/b272450a19485b6e0cefb63200382c4a.woff") format("woff"), url("https://db.onlinewebfonts.com/t/b272450a19485b6e0cefb63200382c4a.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/b272450a19485b6e0cefb63200382c4a.svg#Caviar Dreams") format("svg");
+}
+@font-face {
+  font-family: "Caviar Dreams Bold";
+  src: url("https://db.onlinewebfonts.com/t/0307c7a01678f977185f260b8e16dfbc.eot");
+  src: url("https://db.onlinewebfonts.com/t/0307c7a01678f977185f260b8e16dfbc.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/0307c7a01678f977185f260b8e16dfbc.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/0307c7a01678f977185f260b8e16dfbc.woff") format("woff"), url("https://db.onlinewebfonts.com/t/0307c7a01678f977185f260b8e16dfbc.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/0307c7a01678f977185f260b8e16dfbc.svg#Caviar Dreams Bold") format("svg");
+}
+@font-face {
+  font-family: "Caviar Dreams Italic";
+  src: url("https://db.onlinewebfonts.com/t/57a5c54404dbca01dcdda24dce621923.eot");
+  src: url("https://db.onlinewebfonts.com/t/57a5c54404dbca01dcdda24dce621923.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/57a5c54404dbca01dcdda24dce621923.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/57a5c54404dbca01dcdda24dce621923.woff") format("woff"), url("https://db.onlinewebfonts.com/t/57a5c54404dbca01dcdda24dce621923.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/57a5c54404dbca01dcdda24dce621923.svg#Caviar Dreams Italic") format("svg");
+}
+@font-face {
+  font-family: "Caviar Dreams Bold Italic";
+  src: url("https://db.onlinewebfonts.com/t/2eb2649df9665616da784c94ae4c2910.eot");
+  src: url("https://db.onlinewebfonts.com/t/2eb2649df9665616da784c94ae4c2910.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/2eb2649df9665616da784c94ae4c2910.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/2eb2649df9665616da784c94ae4c2910.woff") format("woff"), url("https://db.onlinewebfonts.com/t/2eb2649df9665616da784c94ae4c2910.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/2eb2649df9665616da784c94ae4c2910.svg#Caviar Dreams Bold Italic") format("svg");
+}
+@font-face {
+  font-family: "Oranienbaum";
+  src: url("https://db.onlinewebfonts.com/t/09850c3d018f2cb9cc4391a7e1e788bd.eot");
+  src: url("https://db.onlinewebfonts.com/t/09850c3d018f2cb9cc4391a7e1e788bd.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/09850c3d018f2cb9cc4391a7e1e788bd.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/09850c3d018f2cb9cc4391a7e1e788bd.woff") format("woff"), url("https://db.onlinewebfonts.com/t/09850c3d018f2cb9cc4391a7e1e788bd.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/09850c3d018f2cb9cc4391a7e1e788bd.svg#Oranienbaum") format("svg");
+}
+* {
+  scroll-behavior: smooth;
+  color: #156064;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #EFE7DD;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+html {
+  font-family: "Caviar Dreams Bold";
+  height: 100vh; /* Fallback for browsers that do not support Custom properties*/
+  height: calc(var(--vh, 1vh) * 100);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+header a {
+  cursor: url("/assets/cursor/icone_pied_coeur25px.cur"), pointer;
+}
+
+button {
+  font-family: "Caviar Dreams";
+  font-size: 20px;
+  background: transparent;
+  color: #156064;
+  border-radius: 6px;
+  border-style: solid;
+  border-color: #156064;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: url("/assets/cursor/icone_pied_coeur25px.cur"), pointer;
+}
+
+button:hover {
+  font-family: "Caviar Dreams Bold";
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Oranienbaum";
+}
+
+img {
+  max-width: 100%;
+}
+
+ul li {
+  list-style-type: none;
+}
+ul li a {
+  position: relative;
+  text-decoration: none;
+}
+
+textarea {
+  resize: none;
+}
+
+a:not(#logo a):not(#reseaux-mobile a):not(#reseaux a):hover:after,
+a.active:not(#logo a):not(#reseaux-mobile a):not(#reseaux a):after {
+  transform: scaleX(1);
+  bottom: -2px;
+}
+
+#scroll-to-top {
+  display: none;
+  position: fixed;
+  font-size: 2rem;
+  right: 1rem;
+  bottom: 1rem;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.112);
+  border-radius: 4px;
+  padding: 2px;
+}
+
+#scroll-to-top.mobile {
+  position: relative;
+  right: inherit;
+  bottom: inherit;
+  width: 2rem;
+  -webkit-backdrop-filter: inherit;
+          backdrop-filter: inherit;
+  background-color: transparent;
+  border-radius: inherit;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+main section {
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+[class*=container],
+[id*=container] {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+* {
+  max-width: 100%;
+}
+
+*:not(img):not(svg):not(video) {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 50;
+}
+header nav {
+  max-width: 1440px;
+  margin: 0px auto;
+  padding: 0 clamp(2rem, 5vw, 6rem);
+  display: flex;
+  justify-content: space-between;
+}
+header nav input#toggle-hamburger {
+  display: none;
+}
+header nav #logo img {
+  width: clamp(120px, 10vw, 180px);
+  min-width: 120px;
+}
+header nav #nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+header nav #nav ul {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-around;
+}
+header nav #nav ul li a {
+  position: relative;
+  text-decoration: none;
+  font-size: clamp(0.9rem, 1.1vw, 1.25rem);
+  padding: 0.5rem clamp(0.5rem, 1vw, 1.5rem);
+}
+header nav #nav ul li a:after {
+  content: "";
+  position: absolute;
+  transform: scaleX(0);
+  width: 100%;
+  height: 2px;
+  background-color: #f58078;
+  transition: transform 0.25s ease-out;
+  bottom: -2px;
+  left: 0;
+}
+header nav #nav ul li a:hover:after {
+  transform: scaleX(1);
+}
+
+#homepage-header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto; /* Ajuste la hauteur du header */
+  z-index: 50; /* Pour le mettre au-dessus du hero-header */
+  transition: background-color 0.3s ease;
+}
+#homepage-header nav input#toggle-hamburger {
+  display: none;
+}
+#homepage-header nav div a {
+  color: #EFE7DD;
+}
+
+#homepage-header.scrolled {
+  background-color: rgba(0, 0, 0, 0.42);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+
+#homepage-header.out-of-hero {
+  background-color: #EFE7DD;
+}
+#homepage-header.out-of-hero a {
+  color: #156064;
+}
+
+@media only screen and (min-width: 2560px) {
+  header nav {
+    max-width: 1920px;
+  }
+  header nav #logo img {
+    width: 13vw;
+  }
+  header nav #nav ul li a {
+    font-size: clamp(1.1rem, 1.3vw, 2.7rem);
+  }
+}
+@media only screen and (min-aspect-ratio: 21/9) {
+  header nav #logo img {
+    width: 12vw;
+  }
+  header nav #nav ul li a {
+    font-size: 1.1vw;
+  }
+}
+@media only screen and (max-width: 768px) {
+  header nav {
+    position: relative;
+  }
+  header nav #nav {
+    position: absolute;
+    width: 80%;
+    max-height: 0;
+    right: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.5s ease-out;
+    background-color: #7bc5b5;
+    flex-direction: column;
+    padding: 0 1rem;
+    border-radius: 0 0 8px 8px;
+    top: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    display: flex;
+  }
+  header nav #nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding: 0 1.5rem;
+    margin: 0;
+    width: 100%;
+    transition: padding 0.5s ease-out;
+  }
+  header nav #nav ul li {
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+  }
+  header nav #nav ul li:last-child {
+    border-bottom: none;
+  }
+  header nav #nav ul li a {
+    padding: 16px 0;
+    color: #EFE7DD !important;
+    display: block;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  header nav input#toggle-hamburger:checked ~ #nav {
+    max-height: 70vh;
+  }
+  header nav input#toggle-hamburger:checked ~ #nav ul {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    height: calc(70vh - 2rem);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  header nav input#toggle-hamburger:checked ~ #nav ul li {
+    opacity: 1;
+  }
+  header nav input#toggle-hamburger:checked ~ #menu-hamburger label span.line:nth-child(1) {
+    transform: translateY(12px) rotate(-45deg);
+  }
+  header nav input#toggle-hamburger:checked ~ #menu-hamburger label span.line:nth-child(2) {
+    opacity: 0;
+  }
+  header nav input#toggle-hamburger:checked ~ #menu-hamburger label span.line:nth-child(3) {
+    transform: translateY(-12px) rotate(45deg);
+  }
+  header nav #menu-hamburger {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 30;
+  }
+  header nav #menu-hamburger label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 0;
+    width: 35px;
+    height: 60px;
+    position: relative;
+    cursor: pointer;
+  }
+  header nav #menu-hamburger label span.line {
+    position: absolute;
+    border-radius: 8px;
+    height: 3px;
+    width: 100%;
+    background: #EFE7DD;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  }
+  header nav #menu-hamburger label span.line:nth-child(1) {
+    top: 13.5px;
+  }
+  header nav #menu-hamburger label span.line:nth-child(2) {
+    top: 25.5px;
+  }
+  header nav #menu-hamburger label span.line:nth-child(3) {
+    top: 37.5px;
+  }
+  header nav #menu-hamburger label .line.out-of-hero {
+    background: #156064;
+  }
+  header nav input#toggle-hamburger:checked ~ #nav ul li {
+    animation: slideDown 0.3s ease-out forwards;
+  }
+  header nav input#toggle-hamburger:checked ~ #nav ul li:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  header nav input#toggle-hamburger:checked ~ #nav ul li:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+  header nav input#toggle-hamburger:checked ~ #nav ul li:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  header nav input#toggle-hamburger:checked ~ #nav ul li:nth-child(4) {
+    animation-delay: 0.25s;
+  }
+}
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+#hero-header {
+  background-color: transparent;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  padding-top: clamp(80px, 8vh, 120px);
+  padding-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start; /* aligne le contenu à gauche */
+  overflow: hidden;
+}
+#hero-header #H1-home {
+  font-family: "Abril Fatface";
+  font-size: clamp(2rem, 2.5vw, 4rem);
+  letter-spacing: 0.1em;
+  line-height: 1.3;
+  color: #EFE7DD;
+  text-align: center;
+  margin: 8vh auto 3vh auto;
+  max-width: min(90%, 1200px);
+  position: relative;
+  z-index: 2;
+  animation: fadeInSoft 0.7s cubic-bezier(0.33, 1, 0.68, 1) both;
+  animation-play-state: paused;
+  /* Quand l’image est chargée : */
+}
+#hero-header #H1-home .second-line {
+  display: inline-block; /* deviendra block sur mobile */
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+}
+#hero-header #container-button {
+  position: absolute;
+  bottom: clamp(70px, 5vh, 80px);
+  left: min(15vw, max(5vw, (100vw - 1440px) / 2 + 40px));
+  z-index: 2;
+}
+#hero-header #container-button #button-hero-header {
+  color: #efe7dd;
+  border-style: solid;
+  border-color: #efe7dd;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  background-color: rgba(89, 89, 89, 0.3411764706);
+  padding: clamp(0.75rem, 1.2vw, 2rem) clamp(1.5rem, 2.5vw, 4rem);
+  font-size: clamp(1rem, 1.2vw, 1.5rem);
+  letter-spacing: 0.1em;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+body.h1-ready #H1-home {
+  animation-play-state: running !important;
+}
+
+@keyframes fadeInSoft {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media only screen and (min-width: 2560px) {
+  #hero-header #H1-home {
+    max-width: 1900px;
+    margin-top: 13vh;
+    font-size: clamp(48px, 3.5vw, 120px);
+  }
+  #hero-header #container-button {
+    left: max(120px, (100vw - 1920px) / 2 + 120px);
+    bottom: clamp(60px, 8vh, 120px);
+  }
+  #hero-header #container-button #button-hero-header {
+    font-size: clamp(24px, 1.5vw, 50px);
+    padding: clamp(24px, 1vw, 36px) clamp(40px, 2vw, 100px);
+  }
+}
+@media only screen and (min-width: 1920px) and (max-width: 2560px) {
+  #hero-header #H1-home {
+    max-width: 1900px;
+    margin-top: 13vh;
+  }
+}
+@media only screen and (max-width: 768px) {
+  #hero-header {
+    background-image: url("/assets/photos/plunie_chaussures_barefoot.webp");
+    background-size: cover;
+    background-position: center 70%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-color: #EFE7DD;
+  }
+  #hero-header #H1-home {
+    font-size: clamp(1.5rem, 5.5vw, 2rem);
+    line-height: 1.4;
+    opacity: 1 !important;
+    animation: none !important;
+    margin: clamp(3rem, 10vh, 6rem) auto 2rem auto;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  #hero-header .second-line {
+    display: block;
+  }
+  #hero-header #container-button {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  #hero-header #container-button #button-hero-header {
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+    padding: clamp(0.5rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 2.5rem);
+    letter-spacing: 0.05em;
+    opacity: 1 !important;
+  }
+}
+@media only screen and (max-width: 576px) {
+  #hero-header #H1-home {
+    font-size: clamp(1.25rem, 5.5vw, 1.75rem);
+    margin: clamp(2rem, 10vh, 5rem) auto 1.5rem auto;
+  }
+  #hero-header #container-button {
+    bottom: 6vh;
+  }
+  #hero-header #container-button #button-hero-header {
+    padding: clamp(0.4rem, 1.5vw, 0.6rem) clamp(1.25rem, 5vw, 2rem);
+  }
+}
+@media only screen and (max-width: 768px) and (min-aspect-ratio: 9/16) {
+  #hero-header #H1-home {
+    margin-top: clamp(5rem, 13vh, 8rem);
+  }
+}
+@media screen and (min-aspect-ratio: 21/9) {
+  #hero-header #H1-home {
+    max-width: 1900px;
+    margin-top: 13vh;
+    font-size: clamp(48px, 2vw, 120px);
+  }
+  #hero-header #container-button {
+    left: clamp(80px, 8vw, 300px);
+  }
+  #hero-header #container-button #button-hero-header {
+    font-size: clamp(24px, 1.5vw, 40px);
+    padding: clamp(24px, 1vw, 36px) clamp(40px, 1.5vw, 80px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  main#accueil #hero-header #H1-home {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  main#accueil #hero-header #container-button #button-hero-header {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+footer {
+  background-color: #EFE7DD;
+  max-width: 1280px;
+  margin: auto;
+  border-top: 1px solid rgba(21, 96, 100, 0.3);
+  padding: 2rem 1rem;
+  position: relative;
+  text-align: center;
+  font-size: 0.9rem;
+}
+footer #grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+footer #grid #nav-footer ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
+footer #grid #nav-footer ul li a {
+  text-decoration: none;
+  color: #156064;
+  transition: color 0.3s;
+}
+footer #grid #nav-footer ul li a:hover {
+  color: #f58078;
+}
+footer #grid #reseaux_sociaux {
+  display: flex;
+  gap: 1rem;
+}
+footer #grid #reseaux_sociaux a {
+  font-size: 1.2rem;
+}
+footer #grid #reseaux_sociaux a i:hover {
+  color: #f58078;
+}
+footer #grid #banniere_footer {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+
+@media only screen and (max-width: 576px) {
+  footer #grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  footer #grid #nav-footer ul {
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+html {
+  background-color: transparent;
+}
+
+body {
+  background-color: transparent;
+}
+body:not(.home-page) {
+  background-color: #EFE7DD;
+}
+
+.parallax-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}
+.parallax-container .parallax-image {
+  width: 100%;
+  height: 100%;
+  background-image: url(/assets/photos/plunie_chaussures_barefoot.webp);
+  background-repeat: no-repeat;
+  background-position: center 75%;
+  will-change: transform;
+  background-size: cover;
+}
+
+.container {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 clamp(2rem, 5vw, 6rem);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+main#accueil section#boutique-section {
+  background-color: #EFE7DD;
+  position: relative;
+  z-index: 10;
+  padding-block: 6rem 3rem;
+}
+main#accueil section#boutique-section h2 {
+  font-size: 3rem;
+  letter-spacing: 1.5px;
+  margin-block: 0 3rem;
+}
+main#accueil section#boutique-section #products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+main#accueil section#boutique-section #products-grid .product-card {
+  text-align: left;
+}
+main#accueil section#boutique-section #products-grid .product-card img {
+  width: 100%;
+  display: block;
+  border-radius: 5px;
+}
+main#accueil section#boutique-section #products-grid .product-card h3 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0.3rem;
+  font-weight: 600;
+}
+main#accueil section#boutique-section #products-grid .product-card .color {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+main#accueil section#boutique-section #products-grid .product-card .color .invisible {
+  visibility: hidden;
+}
+main#accueil section#boutique-section #products-grid .product-card .price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #595959;
+}
+main#accueil section#boutique-section #products-grid .product-card .invisible {
+  visibility: hidden;
+}
+main#accueil section#pourquoi-choisir-plunie {
+  background-color: #EFE7DD;
+  position: relative;
+  z-index: 10;
+  padding-block: 3rem;
+}
+main#accueil section#pourquoi-choisir-plunie .container {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  align-items: center;
+}
+main#accueil section#pourquoi-choisir-plunie #texte-pourquoi {
+  flex: 1;
+  min-width: 280px;
+}
+main#accueil section#pourquoi-choisir-plunie #texte-pourquoi h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+main#accueil section#pourquoi-choisir-plunie #texte-pourquoi ul {
+  line-height: 1.4;
+  padding-left: 0;
+}
+main#accueil section#pourquoi-choisir-plunie #texte-pourquoi ul li {
+  font-family: "Caviar Dreams";
+  color: #0f4e51;
+  margin-bottom: 1rem;
+}
+main#accueil section#pourquoi-choisir-plunie #texte-pourquoi ul li strong {
+  font-weight: 800;
+  color: #156064;
+}
+main#accueil section#pourquoi-choisir-plunie #image-pourquoi {
+  flex: 0 1 25%;
+  max-width: 400px;
+  position: relative;
+}
+main#accueil section#pourquoi-choisir-plunie #image-pourquoi img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+main#accueil section#pictogrammes {
+  background-color: #EFE7DD;
+  padding: 60px 20px;
+}
+main#accueil section#pictogrammes #pictos-container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+main#accueil section#pictogrammes #pictos-container #pictos-div {
+  display: flex;
+  justify-content: space-around;
+}
+main#accueil section#pictogrammes #pictos-container #pictos-div .pictos {
+  flex: 1 1 25%;
+  text-align: center;
+  max-width: 15%;
+}
+main#accueil section#pictogrammes #pictos-container #pictos-div .pictos img {
+  width: 90%;
+  height: auto;
+  margin: 0 auto 20px;
+}
+main#accueil section#pictogrammes #pictos-container #pictos-div .pictos h4 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+main#accueil section#pictogrammes #pictos-container #pictos-div .pictos p.picto-description {
+  font-family: "Caviar Dreams";
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+main#accueil section#pictogrammes #pictos-container #carrousel-controls {
+  display: none;
+}
+main#accueil section#pictogrammes #pictos-container #dots-container {
+  display: none;
+}
+
+@media only screen and (min-width: 2560px) {
+  .parallax-container .parallax-image {
+    background-size: 100% auto;
+    background-position: center 75%;
+    background-color: #EFE7DD;
+  }
+  main#accueil section .container {
+    max-width: 1920px;
+    padding: 0 clamp(3rem, 5vw, 6rem);
+  }
+  main#accueil section #pictos-container {
+    max-width: 1920px;
+  }
+}
+@media only screen and (min-width: 1920px) and (max-width: 2560px) {
+  .parallax-container .parallax-image {
+    background-size: 100% auto;
+    background-position: center 65%;
+  }
+}
+@media only screen and (min-width: 1440px) and (max-width: 1920px) {
+  .parallax-container .parallax-image {
+    background-position: center 75%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .parallax-container {
+    display: none !important;
+  }
+  main#accueil section#boutique-section {
+    padding-block: 4rem 2rem;
+  }
+  main#accueil section#boutique-section h2 {
+    font-size: 2.5rem;
+  }
+  main#accueil section#pourquoi-choisir-plunie {
+    padding-block: 3rem 2rem;
+  }
+  main#accueil section#pourquoi-choisir-plunie .container {
+    flex-direction: column;
+    min-height: auto;
+    gap: 2rem;
+  }
+  main#accueil section#pourquoi-choisir-plunie #texte-pourquoi {
+    width: 100%;
+    order: 1;
+  }
+  main#accueil section#pourquoi-choisir-plunie #texte-pourquoi h2 {
+    font-size: 1.7rem;
+  }
+  main#accueil section#pourquoi-choisir-plunie #texte-pourquoi ul li {
+    font-size: 1rem;
+  }
+  main#accueil section#pourquoi-choisir-plunie #image-pourquoi {
+    width: 100%;
+    order: 2;
+    flex: 0 0 auto;
+    max-width: none;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  main#accueil section#pourquoi-choisir-plunie #image-pourquoi img {
+    width: 80%;
+    height: auto;
+    background-color: transparent;
+  }
+  main#accueil section#pictogrammes {
+    padding: 40px 10px;
+  }
+  main#accueil section#pictogrammes #pictos-container {
+    position: relative;
+    max-width: 100%;
+  }
+  main#accueil section#pictogrammes #pictos-container #pictos-div {
+    display: flex;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  main#accueil section#pictogrammes #pictos-container #pictos-div::-webkit-scrollbar {
+    display: none;
+  }
+  main#accueil section#pictogrammes #pictos-container #pictos-div .pictos {
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+    scroll-snap-align: center;
+  }
+  main#accueil section#pictogrammes #pictos-container #pictos-div .pictos img {
+    display: block;
+    width: 40vw;
+    height: auto;
+    margin: 0 auto;
+    max-width: 300px;
+    min-width: 70px;
+  }
+  main#accueil section#pictogrammes #pictos-container #pictos-div .pictos h4 {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+  }
+  main#accueil section#pictogrammes #pictos-container #pictos-div .pictos p.picto-description {
+    font-family: "Caviar Dreams";
+    font-size: clamp(0.9rem, 3vw, 1rem);
+    line-height: 1.5;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 0;
+  }
+  main#accueil section#pictogrammes #pictos-container #carrousel-controls {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 40%;
+    left: 0;
+    right: 0;
+    padding: 0 15px;
+  }
+  main#accueil section#pictogrammes #pictos-container #carrousel-controls button {
+    background: none;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #156064;
+    transition: background-color 0.3s;
+  }
+  main#accueil section#pictogrammes #pictos-container #carrousel-controls button:hover, main#accueil section#pictogrammes #pictos-container #carrousel-controls button:focus {
+    background: #7bc5b5;
+    outline: none;
+  }
+  main#accueil section#pictogrammes #pictos-container #dots-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+    padding-bottom: 0.5em;
+  }
+  main#accueil section#pictogrammes #pictos-container #dots-container button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background-color: #c4c4c4;
+    cursor: pointer;
+  }
+  main#accueil section#pictogrammes #pictos-container #dots-container button.active {
+    background-color: #156064;
+  }
+  main#accueil section#pictogrammes #pictos-container #dots-container button:focus {
+    outline: 2px solid #156064;
+    outline-offset: 2px;
+  }
+}
+@media screen and (min-aspect-ratio: 21/9) {
+  .parallax-container .parallax-image {
+    background-size: 100% auto;
+    background-position: center 65%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .parallax-container .parallax-image {
+    transform: none !important;
+  }
+}/*# sourceMappingURL=style_accueil.css.map */

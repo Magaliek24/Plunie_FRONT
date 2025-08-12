@@ -1,10 +1,11 @@
 header {
     position: fixed;
     width: 100%;
-    z-index: 20;
+    z-index: 50;
     & nav {
-        max-width: 1280px;
+        max-width: 1440px;
         margin: 0px auto;
+        padding: 0 clamp(2rem, 5vw, 6rem); // Même padding que le contenu
         display: flex;
         justify-content: space-between;
 
@@ -15,7 +16,7 @@ header {
         
         & #logo {
              & img{
-                width: 12vw;
+                width: clamp(120px, 10vw, 180px);
                 min-width: 120px;
             }
         }
@@ -33,6 +34,8 @@ header {
                     & a {
                         position: relative;
                         text-decoration: none;
+                        font-size: clamp(0.9rem, 1.1vw, 1.25rem); // Taille adaptative
+                        padding: 0.5rem clamp(0.5rem, 1vw, 1.5rem); // Espacement responsive
                     }
             
                     & a:after {
@@ -64,7 +67,8 @@ header {
     left: 0;
     width: 100%;
     height: auto;  /* Ajuste la hauteur du header */
-    z-index: 10;  /* Pour le mettre au-dessus du hero-header */
+    z-index: 50;  /* Pour le mettre au-dessus du hero-header */
+    transition: background-color 0.3s ease;
     & nav {
         & input#toggle-hamburger {
             display: none
@@ -80,16 +84,13 @@ header {
     }
   }
 
-#homepage-nav {
-    transition: background-color 0.3s ease;
-}
   
-#homepage-nav.scrolled {
+#homepage-header.scrolled {
     background-color: rgba(0, 0, 0, 0.42);
     backdrop-filter: blur(5px);
 }
   
-#homepage-nav.out-of-hero {
+#homepage-header.out-of-hero {
     background-color: #EFE7DD;
   
     a {
@@ -97,6 +98,47 @@ header {
     }
 }
 
+
+@media only screen and (min-width: 2560px) {
+    header nav {
+        max-width: 1920px;
+        #logo {
+            img {
+                width: 13vw;
+            }
+        }
+        #nav {
+            ul {
+                li {
+                    a {
+                        font-size: clamp(1.1rem, 1.3vw, 2.7rem);
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+@media only screen and (min-aspect-ratio: 21/9) {
+    header nav {
+        #logo {
+            img {
+                width: 12vw;
+            }
+        }
+        #nav {
+            ul {
+                li {
+                    a {
+                        font-size: 1.1vw;
+                    }
+                }
+            }
+        }
+
+    }
+}
 
 
 

@@ -1,0 +1,698 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@font-face {
+  font-family: "Abril Fatface";
+  src: url("https://db.onlinewebfonts.com/t/4abc7b446177a4b533468cd3635fe0b6.eot");
+  src: url("https://db.onlinewebfonts.com/t/4abc7b446177a4b533468cd3635fe0b6.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/4abc7b446177a4b533468cd3635fe0b6.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/4abc7b446177a4b533468cd3635fe0b6.woff") format("woff"), url("https://db.onlinewebfonts.com/t/4abc7b446177a4b533468cd3635fe0b6.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/4abc7b446177a4b533468cd3635fe0b6.svg#Abril Fatface") format("svg");
+}
+@font-face {
+  font-family: "Caviar Dreams";
+  src: url("https://db.onlinewebfonts.com/t/b272450a19485b6e0cefb63200382c4a.eot");
+  src: url("https://db.onlinewebfonts.com/t/b272450a19485b6e0cefb63200382c4a.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/b272450a19485b6e0cefb63200382c4a.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/b272450a19485b6e0cefb63200382c4a.woff") format("woff"), url("https://db.onlinewebfonts.com/t/b272450a19485b6e0cefb63200382c4a.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/b272450a19485b6e0cefb63200382c4a.svg#Caviar Dreams") format("svg");
+}
+@font-face {
+  font-family: "Caviar Dreams Bold";
+  src: url("https://db.onlinewebfonts.com/t/0307c7a01678f977185f260b8e16dfbc.eot");
+  src: url("https://db.onlinewebfonts.com/t/0307c7a01678f977185f260b8e16dfbc.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/0307c7a01678f977185f260b8e16dfbc.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/0307c7a01678f977185f260b8e16dfbc.woff") format("woff"), url("https://db.onlinewebfonts.com/t/0307c7a01678f977185f260b8e16dfbc.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/0307c7a01678f977185f260b8e16dfbc.svg#Caviar Dreams Bold") format("svg");
+}
+@font-face {
+  font-family: "Caviar Dreams Italic";
+  src: url("https://db.onlinewebfonts.com/t/57a5c54404dbca01dcdda24dce621923.eot");
+  src: url("https://db.onlinewebfonts.com/t/57a5c54404dbca01dcdda24dce621923.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/57a5c54404dbca01dcdda24dce621923.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/57a5c54404dbca01dcdda24dce621923.woff") format("woff"), url("https://db.onlinewebfonts.com/t/57a5c54404dbca01dcdda24dce621923.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/57a5c54404dbca01dcdda24dce621923.svg#Caviar Dreams Italic") format("svg");
+}
+@font-face {
+  font-family: "Caviar Dreams Bold Italic";
+  src: url("https://db.onlinewebfonts.com/t/2eb2649df9665616da784c94ae4c2910.eot");
+  src: url("https://db.onlinewebfonts.com/t/2eb2649df9665616da784c94ae4c2910.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/2eb2649df9665616da784c94ae4c2910.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/2eb2649df9665616da784c94ae4c2910.woff") format("woff"), url("https://db.onlinewebfonts.com/t/2eb2649df9665616da784c94ae4c2910.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/2eb2649df9665616da784c94ae4c2910.svg#Caviar Dreams Bold Italic") format("svg");
+}
+@font-face {
+  font-family: "Oranienbaum";
+  src: url("https://db.onlinewebfonts.com/t/09850c3d018f2cb9cc4391a7e1e788bd.eot");
+  src: url("https://db.onlinewebfonts.com/t/09850c3d018f2cb9cc4391a7e1e788bd.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/09850c3d018f2cb9cc4391a7e1e788bd.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/09850c3d018f2cb9cc4391a7e1e788bd.woff") format("woff"), url("https://db.onlinewebfonts.com/t/09850c3d018f2cb9cc4391a7e1e788bd.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/09850c3d018f2cb9cc4391a7e1e788bd.svg#Oranienbaum") format("svg");
+}
+* {
+  scroll-behavior: smooth;
+  color: #156064;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #EFE7DD;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+html {
+  font-family: "Caviar Dreams Bold";
+  height: 100vh; /* Fallback for browsers that do not support Custom properties*/
+  height: calc(var(--vh, 1vh) * 100);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+header a {
+  cursor: url("/assets/cursor/icone_pied_coeur25px.cur"), pointer;
+}
+
+button {
+  font-family: "Caviar Dreams";
+  font-size: 20px;
+  background: transparent;
+  color: #156064;
+  border-radius: 6px;
+  border-style: solid;
+  border-color: #156064;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: url("/assets/cursor/icone_pied_coeur25px.cur"), pointer;
+}
+
+button:hover {
+  font-family: "Caviar Dreams Bold";
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Oranienbaum";
+}
+
+img {
+  max-width: 100%;
+}
+
+ul li {
+  list-style-type: none;
+}
+ul li a {
+  position: relative;
+  text-decoration: none;
+}
+
+textarea {
+  resize: none;
+}
+
+a:not(#logo a):not(#reseaux-mobile a):not(#reseaux a):hover:after,
+a.active:not(#logo a):not(#reseaux-mobile a):not(#reseaux a):after {
+  transform: scaleX(1);
+  bottom: -2px;
+}
+
+#scroll-to-top {
+  display: none;
+  position: fixed;
+  font-size: 2rem;
+  right: 1rem;
+  bottom: 1rem;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.112);
+  border-radius: 4px;
+  padding: 2px;
+}
+
+#scroll-to-top.mobile {
+  position: relative;
+  right: inherit;
+  bottom: inherit;
+  width: 2rem;
+  -webkit-backdrop-filter: inherit;
+          backdrop-filter: inherit;
+  background-color: transparent;
+  border-radius: inherit;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+main section {
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+[class*=container],
+[id*=container] {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+* {
+  max-width: 100%;
+}
+
+*:not(img):not(svg):not(video) {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 50;
+}
+header nav {
+  max-width: 1440px;
+  margin: 0px auto;
+  padding: 0 clamp(2rem, 5vw, 6rem);
+  display: flex;
+  justify-content: space-between;
+}
+header nav input#toggle-hamburger {
+  display: none;
+}
+header nav #logo img {
+  width: clamp(120px, 10vw, 180px);
+  min-width: 120px;
+}
+header nav #nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+header nav #nav ul {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-around;
+}
+header nav #nav ul li a {
+  position: relative;
+  text-decoration: none;
+  font-size: clamp(0.9rem, 1.1vw, 1.25rem);
+  padding: 0.5rem clamp(0.5rem, 1vw, 1.5rem);
+}
+header nav #nav ul li a:after {
+  content: "";
+  position: absolute;
+  transform: scaleX(0);
+  width: 100%;
+  height: 2px;
+  background-color: #f58078;
+  transition: transform 0.25s ease-out;
+  bottom: -2px;
+  left: 0;
+}
+header nav #nav ul li a:hover:after {
+  transform: scaleX(1);
+}
+
+#homepage-header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto; /* Ajuste la hauteur du header */
+  z-index: 50; /* Pour le mettre au-dessus du hero-header */
+  transition: background-color 0.3s ease;
+}
+#homepage-header nav input#toggle-hamburger {
+  display: none;
+}
+#homepage-header nav div a {
+  color: #EFE7DD;
+}
+
+#homepage-header.scrolled {
+  background-color: rgba(0, 0, 0, 0.42);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+
+#homepage-header.out-of-hero {
+  background-color: #EFE7DD;
+}
+#homepage-header.out-of-hero a {
+  color: #156064;
+}
+
+@media only screen and (min-width: 2560px) {
+  header nav {
+    max-width: 1920px;
+  }
+  header nav #logo img {
+    width: 13vw;
+  }
+  header nav #nav ul li a {
+    font-size: clamp(1.1rem, 1.3vw, 2.7rem);
+  }
+}
+@media only screen and (min-aspect-ratio: 21/9) {
+  header nav #logo img {
+    width: 12vw;
+  }
+  header nav #nav ul li a {
+    font-size: 1.1vw;
+  }
+}
+@media only screen and (max-width: 768px) {
+  header nav {
+    position: relative;
+  }
+  header nav #nav {
+    position: absolute;
+    width: 80%;
+    max-height: 0;
+    right: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.5s ease-out;
+    background-color: #7bc5b5;
+    flex-direction: column;
+    padding: 0 1rem;
+    border-radius: 0 0 8px 8px;
+    top: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    display: flex;
+  }
+  header nav #nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding: 0 1.5rem;
+    margin: 0;
+    width: 100%;
+    transition: padding 0.5s ease-out;
+  }
+  header nav #nav ul li {
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+  }
+  header nav #nav ul li:last-child {
+    border-bottom: none;
+  }
+  header nav #nav ul li a {
+    padding: 16px 0;
+    color: #EFE7DD !important;
+    display: block;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  header nav input#toggle-hamburger:checked ~ #nav {
+    max-height: 70vh;
+  }
+  header nav input#toggle-hamburger:checked ~ #nav ul {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    height: calc(70vh - 2rem);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  header nav input#toggle-hamburger:checked ~ #nav ul li {
+    opacity: 1;
+  }
+  header nav input#toggle-hamburger:checked ~ #menu-hamburger label span.line:nth-child(1) {
+    transform: translateY(12px) rotate(-45deg);
+  }
+  header nav input#toggle-hamburger:checked ~ #menu-hamburger label span.line:nth-child(2) {
+    opacity: 0;
+  }
+  header nav input#toggle-hamburger:checked ~ #menu-hamburger label span.line:nth-child(3) {
+    transform: translateY(-12px) rotate(45deg);
+  }
+  header nav #menu-hamburger {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 30;
+  }
+  header nav #menu-hamburger label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 0;
+    width: 35px;
+    height: 60px;
+    position: relative;
+    cursor: pointer;
+  }
+  header nav #menu-hamburger label span.line {
+    position: absolute;
+    border-radius: 8px;
+    height: 3px;
+    width: 100%;
+    background: #EFE7DD;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  }
+  header nav #menu-hamburger label span.line:nth-child(1) {
+    top: 13.5px;
+  }
+  header nav #menu-hamburger label span.line:nth-child(2) {
+    top: 25.5px;
+  }
+  header nav #menu-hamburger label span.line:nth-child(3) {
+    top: 37.5px;
+  }
+  header nav #menu-hamburger label .line.out-of-hero {
+    background: #156064;
+  }
+  header nav input#toggle-hamburger:checked ~ #nav ul li {
+    animation: slideDown 0.3s ease-out forwards;
+  }
+  header nav input#toggle-hamburger:checked ~ #nav ul li:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  header nav input#toggle-hamburger:checked ~ #nav ul li:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+  header nav input#toggle-hamburger:checked ~ #nav ul li:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  header nav input#toggle-hamburger:checked ~ #nav ul li:nth-child(4) {
+    animation-delay: 0.25s;
+  }
+}
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+footer {
+  background-color: #EFE7DD;
+  max-width: 1280px;
+  margin: auto;
+  border-top: 1px solid rgba(21, 96, 100, 0.3);
+  padding: 2rem 1rem;
+  position: relative;
+  text-align: center;
+  font-size: 0.9rem;
+}
+footer #grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+footer #grid #nav-footer ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
+footer #grid #nav-footer ul li a {
+  text-decoration: none;
+  color: #156064;
+  transition: color 0.3s;
+}
+footer #grid #nav-footer ul li a:hover {
+  color: #f58078;
+}
+footer #grid #reseaux_sociaux {
+  display: flex;
+  gap: 1rem;
+}
+footer #grid #reseaux_sociaux a {
+  font-size: 1.2rem;
+}
+footer #grid #reseaux_sociaux a i:hover {
+  color: #f58078;
+}
+footer #grid #banniere_footer {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+
+@media only screen and (max-width: 576px) {
+  footer #grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  footer #grid #nav-footer ul {
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  line-height: 1.6;
+  color: #333;
+}
+
+.hero {
+  position: relative;
+  height: 300px;
+  background: url("/assets/photos/banniere_plunie_contact.webp") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.hero h1 {
+  position: relative;
+  z-index: 2;
+  font-family: "Abril Fatface";
+  font-size: 2.5rem;
+  letter-spacing: 0.1em;
+  color: #efe7dd;
+}
+
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.intro {
+  margin-bottom: 2rem;
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: white;
+  width: 100%;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.honeypot {
+  display: none;
+}
+
+.submit-btn {
+  background-color: #b48c6e;
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #9c7559;
+}
+
+@media (min-width: 600px) {
+  .name-fields {
+    display: flex;
+    gap: 1rem;
+  }
+  .name-fields .form-group {
+    flex: 1;
+  }
+}/*# sourceMappingURL=style_contact.css.map */
