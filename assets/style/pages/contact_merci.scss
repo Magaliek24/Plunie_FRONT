@@ -1,0 +1,32 @@
+.merci-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 2rem;
+}
+
+.merci-section {
+    text-align: center;
+    padding: 3rem 2rem;
+    width: 100%;
+}
+
+.merci-section h1 {
+    font-size: 2rem;
+    color: #f58078; 
+    margin-bottom: 1rem;
+}
+
+.merci-section p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.submit-btn {
+    background-color: #f58078;
+}
+
+.submit-btn:hover {
+    background-color: #ff6b6b;
+}

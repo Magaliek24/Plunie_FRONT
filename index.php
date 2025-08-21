@@ -4,7 +4,8 @@
 <?php
 // $page_title = "Nos modèles";
 $page = 'accueil';
-include('./partials/head.php');
+$page_style = 'accueil';
+include(__DIR__ . '/views/partials/head.php');
 ?>
 
 <body class="home-page">
@@ -13,7 +14,7 @@ include('./partials/head.php');
     </div>
     <?php
     // $page_title = "Nos modèles";
-    include('./partials/header.php');
+    include(__DIR__ . '/views/partials/homepage_header.php');
     ?>
     <main id="accueil">
         <section id="hero-header">
@@ -115,4 +116,4 @@ include('./partials/head.php');
 
     </main>
 
-    <?php include("./partials/footer.php"); ?>
+    <?php include(__DIR__ . '/views/partials/footer.php'); ?>

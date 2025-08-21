@@ -1,26 +1,35 @@
-<!DOCTYPE html>
-<html lang="fr">
-
 <?php
+session_start();
+
+
 $page_title = "Contact";
 $page = 'contact';
-include('../partials/head.php');
-require_once '../../back/includes/security.php';
+$page_style = "contact";
+$page_slug = "contact";
+$hero_image  = '/assets/photos/banniere_plunie_contact.webp';
+$hero_title  = 'Besoin d’aide ?';
+$hero_subtitle = "Nous vous répondrons dans les meilleurs délais.";
+$hero_position = 'center 60%';
+include __DIR__ . '/../partials/head.php';
+require_once __DIR__ . '/../../../config.php';
+require_once CORE_PATH . '/Security.php';
+
+
 $csrf_token = generate_csrf_token();
 ?>
 
-<body>
-    <?php include("../partials/header.php"); ?>
-    <section class="hero">
-        <h1>Besoin d'aide ?</h1>
-    </section>
+<!DOCTYPE html>
+<html lang="fr">
 
-    <main class="container">
+<body class="page <?= htmlspecialchars($page_slug) ?>">
+    <?php include __DIR__ . '/../partials/global_header.php'; ?>
+    <?php include __DIR__ . '/../partials/global_hero.php'; ?>
+    <main id="page" class="container">
         <section class="intro">
             <p>Pour toute question, n’hésitez pas à nous envoyer un message via le formulaire ci-dessous. Vous pouvez également nous écrire directement à l’adresse suivante : <a href="mailto:contact@plunie.fr">contact@plunie.fr</a>. <br>Nous vous répondrons dans les plus brefs délais.</p>
         </section>
 
-        <form action="/back/handlers/sendmail.php" method="POST">
+        <form action="/back/public/index.php/contact/send" method="POST">
             <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
             <div class="name-fields">
                 <div class="form-group">
@@ -48,6 +57,8 @@ $csrf_token = generate_csrf_token();
             <button type="submit" class="submit-btn">Envoyer</button>
         </form>
     </main>
+    <?php include __DIR__ . '/../partials/footer.php'; ?>
+
 
 </body>
 

@@ -105,6 +105,21 @@ button:hover {
     font-family: "Caviar Dreams Bold";
   }
 
+  .submit-btn {
+  font-family: 'Caviar Dreams Bold';
+  background-color: #b48c6e;
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: background 0.3s;
+  }
+
+  .submit-btn:hover {
+  background-color: #9c7559;
+}
+
 
 h1,
 h2,

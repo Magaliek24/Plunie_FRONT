@@ -16,10 +16,10 @@
         <input type="checkbox" id="toggle-hamburger" />
         <div id="nav">
             <ul id="nav-links">
-                <li><a href="/pages/boutique.php">Nos modèles</a></li>
-                <li><a href="/pages/quelle_taille_choisir.php">Quelle taille choisir ?</a></li>
-                <li><a href="/pages/a_propos.php">A propos de nous</a></li>
-                <li><a href="/pages/contact.php">Contact</a></li>
+                <li><a href="/views/pages/boutique.php">Nos modèles</a></li>
+                <li><a href="/views/pages/quelle_taille_choisir.php">Quelle taille choisir ?</a></li>
+                <li><a href="/views/pages/a_propos.php">A propos de nous</a></li>
+                <li><a href="/views/pages/contact.php">Contact</a></li>
             </ul>
         </div>
         <!-- <div id="id-toggle-nav">

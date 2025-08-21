@@ -27,10 +27,9 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer" />
     <script type="module" src="/assets/js/main.js"></script>
-    <?php if (isset($page) && $page === 'contact'): ?>
-        <link rel="stylesheet" href="/assets/style/style_contact.css" />
-    <?php else: ?>
-        <link rel="stylesheet" href="/assets/style/style_accueil.css" />
+    <link rel="stylesheet" href="/assets/style/style_global.css" />
+    <?php if (isset($page_style)): ?>
+        <link rel="stylesheet" href="/assets/style/pages/<?= htmlspecialchars($page_style) ?>.css" />
     <?php endif; ?>
     <title>
         <?= isset($page_title) ? htmlspecialchars($page_title) . " - Plunie" : "Plunie"; ?>
