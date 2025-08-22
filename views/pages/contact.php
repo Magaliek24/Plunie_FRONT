@@ -9,7 +9,7 @@ $page_slug = "contact";
 $hero_image  = '/assets/photos/banniere_plunie_contact.webp';
 $hero_title  = 'Besoin d’aide ?';
 $hero_subtitle = "Nous vous répondrons dans les meilleurs délais.";
-$hero_position = 'center 60%';
+$hero_position = 'center bottom';
 include __DIR__ . '/../partials/head.php';
 require_once __DIR__ . '/../../../config.php';
 require_once CORE_PATH . '/Security.php';
@@ -24,6 +24,7 @@ $csrf_token = generate_csrf_token();
 <body class="page <?= htmlspecialchars($page_slug) ?>">
     <?php include __DIR__ . '/../partials/global_header.php'; ?>
     <?php include __DIR__ . '/../partials/global_hero.php'; ?>
+
     <main id="page" class="container">
         <section class="intro">
             <p>Pour toute question, n’hésitez pas à nous envoyer un message via le formulaire ci-dessous. Vous pouvez également nous écrire directement à l’adresse suivante : <a href="mailto:contact@plunie.fr">contact@plunie.fr</a>. <br>Nous vous répondrons dans les plus brefs délais.</p>
@@ -56,8 +57,7 @@ $csrf_token = generate_csrf_token();
             <input type="hidden" name="recaptcha_response" id="recaptcha_response">
             <button type="submit" class="submit-btn">Envoyer</button>
         </form>
-    </main>
-    <?php include __DIR__ . '/../partials/footer.php'; ?>
+    </main> <?php include __DIR__ . '/../partials/footer.php'; ?>
 
 
 </body>
