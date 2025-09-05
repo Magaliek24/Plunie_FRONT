@@ -2,6 +2,9 @@
 <html lang="fr">
 
 <?php
+
+require __DIR__ . '/bootstrap.php';
+
 // $page_title = "Nos modèles";
 $page = 'accueil';
 $page_style = 'accueil';

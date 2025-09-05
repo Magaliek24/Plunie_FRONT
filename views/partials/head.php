@@ -1,3 +1,5 @@
+<?php require_once dirname(__DIR__, 2) . '/bootstrap.php'; ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -5,7 +7,7 @@
         name="description"
         content="Site de vente en ligne de chaussures barefoot pour enfants">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="<?= isset($page_title) ? htmlspecialchars($page_title) : "Plunie" ?>">
+    <meta property="og:title" content="<?= isset($page_title) ? escape($page_title) : "Plunie" ?>">
     <meta property="og:image" content="/assets/photos/plunie_chaussures_barefoot.webp">
     <meta property="og:description" content="Vente en ligne de chaussures barefoot pour enfants">
     <meta name="robots" content="index, follow" />
@@ -27,6 +29,9 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer" />
     <script type="module" src="/assets/js/main.js"></script>
+    <script>
+        window.API_BASE = 'http://localhost:8090'
+    </script>
 
     <?php if (isset($page) && $page === 'accueil'): ?>
         <link rel="stylesheet" href="/assets/style/style_accueil.css" />
@@ -34,10 +39,10 @@
         <!-- Pour toutes les autres pages -->
         <link rel="stylesheet" href="/assets/style/style_global.css" />
         <?php if (isset($page_style)): ?>
-            <link rel="stylesheet" href="/assets/style/pages/<?= htmlspecialchars($page_style) ?>.css" />
+            <link rel="stylesheet" href="/assets/style/pages/<?= escape($page_style) ?>.css" />
         <?php endif; ?>
     <?php endif; ?>
     <title>
-        <?= isset($page_title) ? htmlspecialchars($page_title) . " - Plunie" : "Plunie"; ?>
+        <?= isset($page_title) ? escape($page_title) . " - Plunie" : "Plunie"; ?>
     </title>
 </head>

@@ -6,7 +6,7 @@
 
     <nav id="homepage-nav">
         <div id="logo">
-            <a href="/index.php">
+            <a href="/index">
                 <img
                     src="/assets/photos/Logo.png"
                     alt="logo de Plunie composé d_une lune et
@@ -16,10 +16,10 @@
         <input type="checkbox" id="toggle-hamburger" />
         <div id="nav">
             <ul id="nav-links">
-                <li><a href="/views/pages/boutique.php">Nos modèles</a></li>
-                <li><a href="/views/pages/quelle_taille_choisir.php">Quelle taille choisir ?</a></li>
-                <li><a href="/views/pages/a_propos.php">A propos de nous</a></li>
-                <li><a href="/views/pages/contact.php">Contact</a></li>
+                <li><a href="/boutique">Nos modèles</a></li>
+                <li><a href="/quelle_taille_choisir">Quelle taille choisir ?</a></li>
+                <li><a href="/a_propos">A propos de nous</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
         </div>
         <!-- <div id="id-toggle-nav">
